@@ -97,8 +97,38 @@ const AdminPanel = () => {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
               <Field label="Hero Headline" value={form.heroHeadline} onChange={(v) => setForm({ ...form, heroHeadline: v })} textarea />
               <Field label="Hero Subheadline" value={form.heroSubheadline} onChange={(v) => setForm({ ...form, heroSubheadline: v })} />
+
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm pt-4">About Section</h3>
+              <Field label="About Title" value={form.aboutTitle} onChange={(v) => setForm({ ...form, aboutTitle: v })} />
+              <Field label="About Subtitle" value={form.aboutSubtitle} onChange={(v) => setForm({ ...form, aboutSubtitle: v })} />
               <Field label="About Text" value={form.aboutText} onChange={(v) => setForm({ ...form, aboutText: v })} textarea />
               <Field label="About Highlight" value={form.aboutHighlight} onChange={(v) => setForm({ ...form, aboutHighlight: v })} textarea />
+              <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs pt-2">About Bullet Points</h4>
+              {form.aboutBullets.map((b, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <input
+                    value={b}
+                    onChange={(e) => {
+                      const next = [...form.aboutBullets];
+                      next[i] = e.target.value;
+                      setForm({ ...form, aboutBullets: next });
+                    }}
+                    className="flex-1 glass-card text-primary-foreground rounded-xl px-4 py-2.5 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all"
+                  />
+                  <button
+                    onClick={() => setForm({ ...form, aboutBullets: form.aboutBullets.filter((_, j) => j !== i) })}
+                    className="text-steel hover:text-destructive text-xs transition-colors"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => setForm({ ...form, aboutBullets: [...form.aboutBullets, "New bullet point"] })}
+                className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
+              >
+                + Add Bullet Point
+              </button>
 
               <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm pt-4">Hero Stats</h3>
               {form.heroStats.map((s, i) => (
