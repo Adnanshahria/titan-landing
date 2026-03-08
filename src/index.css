@@ -127,7 +127,8 @@
 /* Section heading accent line */
 .heading-accent {
   position: relative;
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 .heading-accent::after {
   content: '';
