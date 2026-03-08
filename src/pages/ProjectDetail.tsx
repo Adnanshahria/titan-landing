@@ -48,20 +48,35 @@ const ProjectDetail = () => {
       {/* Hero - Gallery style */}
       <section className="pt-28 pb-10 bg-steel-light">
         <div className="container mx-auto px-4">
-          {/* Main image card */}
+          {/* Image gallery grid */}
           <motion.div
             key={slug}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl overflow-hidden shadow-2xl relative max-h-[480px]"
+            className="grid grid-cols-4 gap-3 max-h-[480px]"
           >
-            <img
-              src={project.image}
-              alt={project.name}
-              className="w-full h-[480px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+            {/* Main large image */}
+            <div className="col-span-4 md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative h-[300px] md:h-full">
+              <img src={project.image} alt={project.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+            </div>
+            {/* Top right */}
+            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
+              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "left center" }} />
+            </div>
+            {/* Top far right */}
+            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
+              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "right center" }} />
+            </div>
+            {/* Bottom right */}
+            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
+              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center top" }} />
+            </div>
+            {/* Bottom far right */}
+            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
+              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center bottom" }} />
+            </div>
           </motion.div>
 
           {/* Project info below gallery */}
