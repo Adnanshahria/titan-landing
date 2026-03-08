@@ -14,7 +14,7 @@ import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   return (
-    <div className="min-h-screen space-y-4">
+    <div className="min-h-screen [&>*+*:not(:nth-child(2))]:mt-4">
       <Navbar />
       <HeroSection />
       <AboutSection />
