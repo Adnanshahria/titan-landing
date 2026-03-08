@@ -90,10 +90,10 @@ const ProjectsSection = () => {
         <div className="mt-14">
           <div className="text-center mb-6">
             <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground uppercase">
-              Project Locations
+              {t("projects.locations")}
             </h3>
             <p className="text-muted-foreground text-sm mt-2">
-              Hover over the pins to explore our projects across Bangladesh
+              {t("projects.locationsDesc")}
             </p>
           </div>
           <InteractiveProjectMap filterCategory={filter} />
