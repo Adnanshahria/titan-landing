@@ -171,7 +171,7 @@ const AdminMapPins = () => {
               </div>
             )}
           </div>
-        )))}
+        ))}
       </div>
     </div>
   );
