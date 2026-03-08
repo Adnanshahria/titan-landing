@@ -174,23 +174,26 @@ const ProjectDetail = () => {
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
               {/* Project Gallery */}
-              <div className="mt-8">
-                <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "left center" }} />
-                  </div>
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "right center" }} />
-                  </div>
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center top" }} />
-                  </div>
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center bottom" }} />
+              {allImages.length > 1 && (
+                <div className="mt-8">
+                  <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {allImages.map((imgUrl, i) => (
+                      <div
+                        key={i}
+                        className="h-44 rounded-2xl overflow-hidden cursor-pointer"
+                        onClick={() => { setDirection(i > imgIndex ? 1 : -1); setImgIndex(i); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={`${project.name} view ${i + 1}`}
+                          className={`w-full h-full object-cover hover:scale-105 transition-all duration-700 ${i === imgIndex ? "ring-2 ring-orange" : "opacity-80 hover:opacity-100"}`}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
+              )}
             </motion.div>
 
             {/* Sidebar */}
