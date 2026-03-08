@@ -42,7 +42,7 @@ export const projects: Project[] = [
     ],
     details:
       "This landmark project involved the comprehensive upgrading of the Dohazari 100MW Peaking Power Plant for BPDB. Our scope included the careful removal of aging fuel pipeline infrastructure and replacement with modern systems, along with the installation of 11kV underground cable networks. The project demanded precision engineering and adherence to strict safety protocols given the operational nature of the facility.",
-    coordinates: { lat: 22.1522, lng: 92.0765 },
+    coordinates: { lat: 22.1590, lng: 91.9960 },
   },
   {
     slug: "rangpur-20mw-chimney",
