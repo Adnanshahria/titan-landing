@@ -353,6 +353,7 @@ const AdminPanel = () => {
 
           {tab === "whychooseus" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <Field label="Section Title" value={form.whyChooseUs.title} onChange={(v) => setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, title: v } })} />
               <div className="glass-card rounded-xl p-5 gradient-border space-y-3">
                 <div className="grid sm:grid-cols-2 gap-3">
                   <Field label="Years Count" value={form.whyChooseUs.yearsCount} onChange={(v) => setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, yearsCount: v } })} />

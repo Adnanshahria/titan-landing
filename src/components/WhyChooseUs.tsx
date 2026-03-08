@@ -31,7 +31,7 @@ const WhyChooseUs = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="space-y-3"
             >
-              <h2 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Why Choose Us</h2>
+              <h2 className="font-heading text-xl font-bold text-foreground uppercase mb-4">{title}</h2>
               {points.map((p) => (
                 <div key={p} className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-lg bg-orange/10 flex items-center justify-center shrink-0 mt-0.5">

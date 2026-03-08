@@ -101,6 +101,7 @@ const defaultContent: SiteContent = {
     { quote: "Techno-Tech has been our go-to contractor for over a decade.", name: "Dr. Anisur Rahman", title: "Technical Advisor", org: "Eastern Refinery", projectSlug: "eastern-refinery-distillation" },
   ],
   whyChooseUs: {
+    title: "Why Choose Us",
     yearsCount: "30",
     yearsLabel: "Years of Engineering Excellence",
     points: [
