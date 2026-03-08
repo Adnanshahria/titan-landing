@@ -4,6 +4,7 @@ import { MapPin } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMapPins, MapPin as MapPinType } from "@/hooks/useMapPins";
 import { projects } from "@/data/projects";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Bangladesh geographic bounds (approx)
 const GEO_BOUNDS = {
