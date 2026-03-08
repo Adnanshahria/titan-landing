@@ -156,7 +156,7 @@ const ProjectDetail = () => {
       </section>
 
       {/* Content */}
-      <section className="py-8 bg-steel-light">
+      <section className="py-2 bg-steel-light">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-3 lg:gap-6">
             {/* Main */}
