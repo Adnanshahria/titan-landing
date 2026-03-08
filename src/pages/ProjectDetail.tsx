@@ -59,12 +59,6 @@ const ProjectDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" />
         <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-end pb-10">
           <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <Link
-              to="/#projects"
-              className="inline-flex items-center gap-2 text-steel hover:text-orange transition-colors text-sm mb-5"
-            >
-              <ArrowLeft size={16} /> Back to Projects
-            </Link>
             <div className="flex items-center gap-3 mb-3">
               <span className="inline-block bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-4 py-1.5 rounded-full uppercase">
                 {project.category}
