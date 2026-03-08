@@ -28,6 +28,26 @@ interface Props {
 const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
   const { data: pins = [] } = useMapPins();
   const [hoveredPin, setHoveredPin] = useState<MapPinType | null>(null);
+  const [tappedPin, setTappedPin] = useState<MapPinType | null>(null);
+  const navigate = useNavigate();
+
+  const activeTooltipPin = tappedPin || hoveredPin;
+
+  // On mobile: first tap shows tooltip, second tap navigates
+  const handlePinTap = useCallback((pin: MapPinType, e: React.MouseEvent | React.TouchEvent) => {
+    // Check if touch device
+    if ("ontouchstart" in window) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (tappedPin?.id === pin.id) {
+        // Second tap — navigate
+        if (pin.project_slug) navigate(`/project/${pin.project_slug}`);
+        setTappedPin(null);
+      } else {
+        setTappedPin(pin);
+      }
+    }
+  }, [tappedPin, navigate]);
 
   const filtered = filterCategory && filterCategory !== "All"
     ? pins.filter((p) => p.category === filterCategory)
