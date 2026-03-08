@@ -4,11 +4,12 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout, MapPin
+  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout, MapPin, Languages
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import AdminProjectDescriptions from "@/components/admin/AdminProjectDescriptions";
+import AdminProjectTranslations from "@/components/admin/AdminProjectTranslations";
 import AdminLeads from "@/components/admin/AdminLeads";
 import AdminMapPins from "@/components/admin/AdminMapPins";
 import { useSiteContent } from "@/context/SiteContext";
