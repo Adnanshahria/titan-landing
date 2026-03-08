@@ -99,6 +99,28 @@ const AdminPanel = () => {
               <Field label="Hero Subheadline" value={form.heroSubheadline} onChange={(v) => setForm({ ...form, heroSubheadline: v })} />
               <Field label="About Text" value={form.aboutText} onChange={(v) => setForm({ ...form, aboutText: v })} textarea />
               <Field label="About Highlight" value={form.aboutHighlight} onChange={(v) => setForm({ ...form, aboutHighlight: v })} textarea />
+
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm pt-4">Hero Stats</h3>
+              {form.heroStats.map((s, i) => (
+                <div key={i} className="glass-card rounded-xl p-4 gradient-border grid sm:grid-cols-3 gap-3">
+                  <Field label="Value" value={String(s.value)} onChange={(v) => {
+                    const next = [...form.heroStats];
+                    next[i] = { ...next[i], value: Number(v) || 0 };
+                    setForm({ ...form, heroStats: next });
+                  }} />
+                  <Field label="Suffix" value={s.suffix} onChange={(v) => {
+                    const next = [...form.heroStats];
+                    next[i] = { ...next[i], suffix: v };
+                    setForm({ ...form, heroStats: next });
+                  }} />
+                  <Field label="Label" value={s.label} onChange={(v) => {
+                    const next = [...form.heroStats];
+                    next[i] = { ...next[i], label: v };
+                    setForm({ ...form, heroStats: next });
+                  }} />
+                </div>
+              ))}
+
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Contact Email" value={form.contactEmail} onChange={(v) => setForm({ ...form, contactEmail: v })} />
                 <Field label="Contact Phone" value={form.contactPhone} onChange={(v) => setForm({ ...form, contactPhone: v })} />

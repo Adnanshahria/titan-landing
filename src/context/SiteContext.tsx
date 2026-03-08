@@ -13,6 +13,7 @@ export interface SiteContent {
   services: { title: string; desc: string }[];
   clients: string[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
+  heroStats: { value: number; suffix: string; label: string }[];
   whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
   contactFax: string;
   contactPhone2: string;
@@ -33,6 +34,12 @@ const defaultContent: SiteContent = {
   contactEmail: "info@technotechengineering.com",
   contactPhone: "01711-003072",
   contactAddress: "106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205",
+  heroStats: [
+    { value: 30, suffix: "+", label: "Years Experience" },
+    { value: 46, suffix: "+", label: "Projects Completed" },
+    { value: 15, suffix: "+", label: "Government Clients" },
+    { value: 1995, suffix: "", label: "Established" },
+  ],
   contactFax: "+880-2-9568037",
   contactPhone2: "01685-204406",
   contactOfficeHours: "Sun–Thu, 9AM–6PM",
