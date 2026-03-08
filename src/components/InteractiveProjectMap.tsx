@@ -246,11 +246,11 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
           <div className="flex items-center gap-1.5 bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-steel/15 shadow-sm">
             <div className="w-2 h-2 rounded-full bg-orange animate-pulse" />
             <span className="text-[9px] text-muted-foreground uppercase tracking-widest font-heading font-semibold">
-              {filtered.length} Projects across Bangladesh
+              {filtered.length} {t("projects.across")}
             </span>
           </div>
           <div className="flex items-center gap-2 bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-steel/15 shadow-sm">
-            <span className="text-[9px] text-muted-foreground font-heading uppercase tracking-wider">🇧🇩 Bangladesh</span>
+            <span className="text-[9px] text-muted-foreground font-heading uppercase tracking-wider">🇧🇩 {t("common.bangladesh")}</span>
           </div>
         </div>
       </div>
