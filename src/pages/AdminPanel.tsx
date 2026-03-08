@@ -49,6 +49,7 @@ const AdminPanel = () => {
     { id: "chatbot", label: t("admin.chatbot"), icon: Bot },
     { id: "images", label: t("admin.images"), icon: ImageIcon },
     { id: "descriptions", label: t("admin.descriptions"), icon: FileText },
+    { id: "translations", label: "Translations (বাংলা)", icon: Languages },
     { id: "mappins", label: t("admin.mapPins"), icon: MapPin },
   ];
 
