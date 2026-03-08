@@ -58,7 +58,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        </div>
       </div>
       <div className="border-t border-steel/10 py-5">
         <p className="text-center text-steel text-xs">© 2025 Techno-Tech Engineering Ltd. All Rights Reserved.</p>
