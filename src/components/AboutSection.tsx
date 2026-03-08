@@ -6,9 +6,9 @@ import aboutImg from "@/assets/about-img.jpg";
 const AboutSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section id="about" className="py-20 bg-steel-light">
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["30px", "-30px"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["20px", "-20px"]);
       <div ref={ref} className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
