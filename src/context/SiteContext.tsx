@@ -4,8 +4,11 @@ import { projects as defaultProjects, Project } from "@/data/projects";
 export interface SiteContent {
   heroHeadline: string;
   heroSubheadline: string;
+  aboutTitle: string;
+  aboutSubtitle: string;
   aboutText: string;
   aboutHighlight: string;
+  aboutBullets: string[];
   contactEmail: string;
   contactPhone: string;
   contactAddress: string;
