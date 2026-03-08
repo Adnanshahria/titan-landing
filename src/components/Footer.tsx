@@ -16,7 +16,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-footer-bg overflow-hidden">
+    <footer className="bg-footer-bg overflow-hidden rounded-t-lg">
       <div className="container mx-auto px-6 pt-12 pb-8">
         {/* Top: Logo & tagline */}
         <div className="flex flex-col items-center text-center mb-10">
