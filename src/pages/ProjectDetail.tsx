@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import InteractiveProjectMap from "@/components/InteractiveProjectMap";
 import { useRef, useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
 import { useProjectImages } from "@/hooks/useProjectImages";
 import { useProjectDescription } from "@/hooks/useProjectDescription";
 
