@@ -29,6 +29,17 @@ const Footer = () => {
             <p className="text-steel text-sm">Engineering Bangladesh's Industrial Future</p>
           </div>
           <div>
+            <h4 className="font-heading text-primary-foreground font-semibold uppercase mb-4">Contact</h4>
+            <ul className="space-y-3">
+              {contactItems.map((item) => (
+                <li key={item.text} className="flex items-start gap-2">
+                  <item.icon className="text-orange shrink-0 mt-0.5" size={14} />
+                  <span className="text-steel text-xs">{item.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
             <h4 className="font-heading text-primary-foreground font-semibold uppercase mb-4">Quick Links</h4>
             <ul className="space-y-2 text-steel text-sm">
               {["Home", "About", "Services", "Projects", "Contact"].map((l) => (
@@ -46,17 +57,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div>
-            <h4 className="font-heading text-primary-foreground font-semibold uppercase mb-4">Contact</h4>
-            <ul className="space-y-3">
-              {contactItems.map((item) => (
-                <li key={item.text} className="flex items-start gap-2">
-                  <item.icon className="text-orange shrink-0 mt-0.5" size={14} />
-                  <span className="text-steel text-xs">{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        </div>
         </div>
       </div>
       <div className="border-t border-steel/10 py-5">
