@@ -188,7 +188,7 @@ const ProjectDetail = () => {
               <div className="bg-card rounded-2xl p-5 gradient-border shadow-lg">
                 <h3 className="font-heading text-lg font-bold text-foreground uppercase mb-4">{t("projectDetail.scope")}</h3>
                 <ul className="space-y-2.5">
-                  {project.scope.map((item, i) => (
+                  {projectScope.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="w-5 h-5 rounded-md bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shrink-0 mt-0.5">
                         <span className="text-secondary-foreground text-[10px] font-bold">{i + 1}</span>
