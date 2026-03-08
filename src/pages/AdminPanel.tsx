@@ -57,7 +57,7 @@ const AdminPanel = () => {
       {/* Sidebar */}
       <div className="w-60 bg-navy-card border-r border-steel/10 flex flex-col shrink-0">
         <div className="p-5 border-b border-steel/10">
-          <h2 className="font-heading text-primary-foreground font-bold uppercase text-sm tracking-wider">Admin Panel</h2>
+          <h2 className="font-heading text-primary-foreground font-bold uppercase text-sm tracking-wider">{t("admin.title")}</h2>
         </div>
         <nav className="flex-1 py-4 px-3 space-y-1">
           {tabs.map((t) => (
