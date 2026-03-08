@@ -75,13 +75,13 @@ const AdminPanel = () => {
         </nav>
         <div className="p-4 border-t border-steel/10 space-y-2">
           <Link to="/" className="flex items-center gap-2 text-steel text-xs hover:text-orange transition-colors">
-            <ArrowLeft size={14} /> Back to Site
+            <ArrowLeft size={14} /> {t("admin.backToSite")}
           </Link>
           <button
             onClick={() => { sessionStorage.removeItem("admin-auth"); setAuthed(false); }}
             className="text-steel text-xs hover:text-destructive transition-colors"
           >
-            Logout
+            {t("admin.logout")}
           </button>
         </div>
       </div>
