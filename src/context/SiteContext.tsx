@@ -13,6 +13,8 @@ export interface SiteContent {
   contactPhone: string;
   contactAddress: string;
   projects: Project[];
+  servicesTitle: string;
+  servicesSubtitle: string;
   services: { title: string; desc: string }[];
   clients: string[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
@@ -53,6 +55,8 @@ const defaultContent: SiteContent = {
   contactPhone2: "01685-204406",
   contactOfficeHours: "Sun–Thu, 9AM–6PM",
   projects: defaultProjects,
+  servicesTitle: "Our Core Services",
+  servicesSubtitle: "End-to-end engineering solutions across Bangladesh's energy and industrial sectors",
   services: [
     { title: "Power Plant Works", desc: "Boiler, Turbine, Generator, Furnace & Chimney erection, commissioning and revamping for captive and grid power plants." },
     { title: "Civil & Mechanical Erection", desc: "Factory shed design, steel structure, steel storage tanks, steel silo manufacturing and erection works." },

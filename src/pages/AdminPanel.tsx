@@ -166,6 +166,8 @@ const AdminPanel = () => {
 
           {tab === "services" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <Field label="Section Title" value={form.servicesTitle} onChange={(v) => setForm({ ...form, servicesTitle: v })} />
+              <Field label="Section Subtitle" value={form.servicesSubtitle} onChange={(v) => setForm({ ...form, servicesSubtitle: v })} textarea />
               {form.services.map((s, i) => (
                 <div key={i} className="glass-card rounded-xl p-5 gradient-border space-y-3">
                   <Field label={`Service ${i + 1} Title`} value={s.title} onChange={(v) => {
