@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
               onClick={() => {
-                if (t.projectSlug) navigate(`/projects/${t.projectSlug}`);
+                if (t.projectSlug) navigate(`/project/${t.projectSlug}`);
               }}
               className={`glass-card rounded-2xl p-4 md:p-5 gradient-border ${
                 t.projectSlug ? "cursor-pointer hover:border-orange/40 hover:shadow-lg hover:shadow-orange/10 transition-all" : ""
