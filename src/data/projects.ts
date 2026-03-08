@@ -126,7 +126,7 @@ export const projects: Project[] = [
     ],
     details:
       "Eastern Refinery's atmospheric distillation unit is the heart of Bangladesh's petroleum refining capability. Techno-Tech was selected for the critical revamping of furnaces F-1101 A and B — involving complete refractory relining, burner system modernization, and tube replacement. The project was executed during a planned turnaround window, requiring round-the-clock operations to meet the tight schedule while maintaining the highest safety standards in this hazardous environment.",
-    coordinates: { lat: 22.3569, lng: 91.7832 },
+    coordinates: { lat: 22.3475, lng: 91.8123 },
   },
   {
     slug: "sylhet-sports-complex",
