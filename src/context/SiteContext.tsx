@@ -29,6 +29,10 @@ export interface SiteContent {
   contactFax: string;
   contactPhone2: string;
   contactOfficeHours: string;
+  footerCompanyName: string;
+  footerTagline: string;
+  footerCopyright: string;
+  footerServiceLinks: string[];
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
