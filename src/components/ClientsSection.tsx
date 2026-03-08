@@ -1,17 +1,28 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+import bpdbLogo from "@/assets/clients/bpdb.png";
+import bwdbLogo from "@/assets/clients/bwdb.png";
+import jfclLogo from "@/assets/clients/jfcl.png";
+import erlLogo from "@/assets/clients/erl.png";
+import nscLogo from "@/assets/clients/nsc.png";
+import kpmlLogo from "@/assets/clients/kpml.png";
+import apsclLogo from "@/assets/clients/apscl.jpg";
+import chhatakLogo from "@/assets/clients/chhatak.png";
+import sbagroLogo from "@/assets/clients/sbagro.png";
+import carewLogo from "@/assets/clients/carew.png";
+
 const clients = [
-  "Bangladesh Power Development Board (BPDB)",
-  "Bangladesh Water Development Board (BWDB)",
-  "Jamuna Fertilizer Company Ltd.",
-  "Eastern Refinery Ltd.",
-  "National Sports Council",
-  "Karnaphuli Paper Mills Ltd.",
-  "Ashuganj Power Station",
-  "Chhatak Cement Company Ltd.",
-  "SB Agro Chemical Industries",
-  "Carew & Co. (BD) Ltd.",
+  { name: "Bangladesh Power Development Board (BPDB)", logo: bpdbLogo },
+  { name: "Bangladesh Water Development Board (BWDB)", logo: bwdbLogo },
+  { name: "Jamuna Fertilizer Company Ltd.", logo: jfclLogo },
+  { name: "Eastern Refinery Ltd.", logo: erlLogo },
+  { name: "National Sports Council", logo: nscLogo },
+  { name: "Karnaphuli Paper Mills Ltd.", logo: kpmlLogo },
+  { name: "Ashuganj Power Station", logo: apsclLogo },
+  { name: "Chhatak Cement Company Ltd.", logo: chhatakLogo },
+  { name: "SB Agro Chemical Industries", logo: sbagroLogo },
+  { name: "Carew & Co. (BD) Ltd.", logo: carewLogo },
 ];
 
 const ClientsSection = () => {
@@ -27,13 +38,19 @@ const ClientsSection = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {clients.map((c, i) => (
             <motion.div
-              key={c}
+              key={c.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="glass-card rounded-xl p-4 flex items-center justify-center text-center min-h-[80px] hover:border-orange/40 hover:scale-105 hover:shadow-lg hover:shadow-orange/5 transition-all duration-300 cursor-default"
+              className="glass-card rounded-xl p-4 flex flex-col items-center justify-center text-center min-h-[120px] gap-2 hover:border-orange/40 hover:scale-105 hover:shadow-lg hover:shadow-orange/5 transition-all duration-300 cursor-default"
             >
-              <span className="text-primary-foreground text-sm font-medium">{c}</span>
+              <img
+                src={c.logo}
+                alt={c.name}
+                className="w-14 h-14 object-contain"
+                loading="lazy"
+              />
+              <span className="text-primary-foreground text-xs font-medium leading-tight">{c.name}</span>
             </motion.div>
           ))}
         </div>
