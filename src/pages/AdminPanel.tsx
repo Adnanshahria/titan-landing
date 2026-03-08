@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
@@ -178,6 +179,23 @@ const AdminPanel = () => {
                       setForm({ ...form, testimonials: next });
                     }} />
                   </div>
+                  <div>
+                    <label className="block text-steel text-xs uppercase tracking-wider mb-1.5">Linked Project</label>
+                    <select
+                      value={t.projectSlug || ""}
+                      onChange={(e) => {
+                        const next = [...form.testimonials];
+                        next[i] = { ...next[i], projectSlug: e.target.value || undefined };
+                        setForm({ ...form, testimonials: next });
+                      }}
+                      className="w-full glass-card text-primary-foreground rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all bg-transparent"
+                    >
+                      <option value="" className="bg-navy">No linked project</option>
+                      {projects.map((p) => (
+                        <option key={p.slug} value={p.slug} className="bg-navy">{p.name}</option>
+                      ))}
+                    </select>
+                  </div>
                   <button
                     onClick={() => setForm({ ...form, testimonials: form.testimonials.filter((_, j) => j !== i) })}
                     className="text-destructive text-xs hover:underline"
@@ -187,7 +205,7 @@ const AdminPanel = () => {
                 </div>
               ))}
               <button
-                onClick={() => setForm({ ...form, testimonials: [...form.testimonials, { quote: "", name: "", title: "", org: "" }] })}
+                onClick={() => setForm({ ...form, testimonials: [...form.testimonials, { quote: "", name: "", title: "", org: "", projectSlug: "" }] })}
                 className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
               >
                 + Add Testimonial

@@ -12,7 +12,7 @@ export interface SiteContent {
   projects: Project[];
   services: { title: string; desc: string }[];
   clients: string[];
-  testimonials: { quote: string; name: string; title: string; org: string }[];
+  testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
@@ -51,10 +51,10 @@ const defaultContent: SiteContent = {
     "Carew & Co. (BD) Ltd.",
   ],
   testimonials: [
-    { quote: "Techno-Tech delivered our 100MW power plant project on time with exceptional quality.", name: "Md. Rafiqul Islam", title: "Chief Engineer", org: "BPDB" },
-    { quote: "We've partnered with Techno-Tech on multiple cement mill overhaul projects.", name: "Kamal Uddin Ahmed", title: "Plant Manager", org: "Chhatak Cement" },
-    { quote: "The urea stripper replacement was handled with precision, minimizing downtime.", name: "Engr. Shahidul Haque", title: "Project Director", org: "Jamuna Fertilizer" },
-    { quote: "Techno-Tech has been our go-to contractor for over a decade.", name: "Dr. Anisur Rahman", title: "Technical Advisor", org: "Eastern Refinery" },
+    { quote: "Techno-Tech delivered our 100MW power plant project on time with exceptional quality.", name: "Md. Rafiqul Islam", title: "Chief Engineer", org: "BPDB", projectSlug: "dohazari-100mw-power-plant" },
+    { quote: "We've partnered with Techno-Tech on multiple cement mill overhaul projects.", name: "Kamal Uddin Ahmed", title: "Plant Manager", org: "Chhatak Cement", projectSlug: "chhatak-cement-mill-repair" },
+    { quote: "The urea stripper replacement was handled with precision, minimizing downtime.", name: "Engr. Shahidul Haque", title: "Project Director", org: "Jamuna Fertilizer", projectSlug: "jamuna-fertilizer-urea-stripper" },
+    { quote: "Techno-Tech has been our go-to contractor for over a decade.", name: "Dr. Anisur Rahman", title: "Technical Advisor", org: "Eastern Refinery", projectSlug: "eastern-refinery-distillation" },
   ],
   chatbotConfig: {
     groqApiKey: "",

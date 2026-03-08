@@ -1,52 +1,35 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "Techno-Tech delivered our 100MW power plant project on time with exceptional quality. Their expertise in boiler erection and commissioning is unmatched in Bangladesh.",
-    name: "Md. Rafiqul Islam",
-    title: "Chief Engineer",
-    org: "Bangladesh Power Development Board",
-  },
-  {
-    quote: "We've partnered with Techno-Tech on multiple cement mill overhaul projects. Their technical competence and safety standards are world-class.",
-    name: "Kamal Uddin Ahmed",
-    title: "Plant Manager",
-    org: "Chhatak Cement Company Ltd.",
-  },
-  {
-    quote: "The urea stripper replacement was a complex job. Techno-Tech's team handled it with precision, minimizing our downtime significantly.",
-    name: "Engr. Shahidul Haque",
-    title: "Project Director",
-    org: "Jamuna Fertilizer Company Ltd.",
-  },
-  {
-    quote: "From refinery furnace revamping to pipeline works, Techno-Tech has been our go-to contractor for over a decade. Reliable and professional.",
-    name: "Dr. Anisur Rahman",
-    title: "Technical Advisor",
-    org: "Eastern Refinery Ltd.",
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { useSiteContent } from "@/context/SiteContext";
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [current, setCurrent] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
+  const navigate = useNavigate();
+  const { content } = useSiteContent();
+
+  const testimonials = content.testimonials;
 
   useEffect(() => {
-    if (!autoplay) return;
+    if (!autoplay || testimonials.length === 0) return;
     const timer = setInterval(() => {
       setCurrent((c) => (c + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [autoplay]);
+  }, [autoplay, testimonials.length]);
 
   const go = (dir: number) => {
     setAutoplay(false);
     setCurrent((c) => (c + dir + testimonials.length) % testimonials.length);
   };
+
+  if (testimonials.length === 0) return null;
+
+  const t = testimonials[current];
 
   return (
     <section className="py-20 bg-dark-bg noise-overlay relative overflow-hidden rounded-2xl">
@@ -61,28 +44,26 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          {/* Cards */}
-          <div className="relative overflow-hidden">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={i}
-                initial={false}
-                animate={{
-                  opacity: i === current ? 1 : 0,
-                  scale: i === current ? 1 : 0.95,
-                  y: i === current ? 0 : 20,
-                  position: i === current ? "relative" as const : "absolute" as const,
-                }}
-                transition={{ duration: 0.5 }}
-                className={`glass-card rounded-2xl p-6 md:p-8 gradient-border ${
-                  i === current ? "relative" : "absolute inset-0 pointer-events-none"
-                }`}
-              >
-                <Quote className="text-orange/30 mb-3" size={28} />
-                <p className="text-primary-foreground text-sm md:text-base leading-relaxed italic">
-                  "{t.quote}"
-                </p>
-                <div className="mt-4 flex items-center gap-3">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              onClick={() => {
+                if (t.projectSlug) navigate(`/projects/${t.projectSlug}`);
+              }}
+              className={`glass-card rounded-2xl p-6 md:p-8 gradient-border ${
+                t.projectSlug ? "cursor-pointer hover:border-orange/40 hover:shadow-lg hover:shadow-orange/10 transition-all" : ""
+              }`}
+            >
+              <Quote className="text-orange/30 mb-3" size={28} />
+              <p className="text-primary-foreground text-sm md:text-base leading-relaxed italic">
+                "{t.quote}"
+              </p>
+              <div className="mt-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
                   <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center text-secondary-foreground font-heading font-bold text-xs">
                     {t.name.charAt(0)}
                   </div>
@@ -91,9 +72,14 @@ const TestimonialsSection = () => {
                     <p className="text-steel text-xs">{t.title}, {t.org}</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                {t.projectSlug && (
+                  <span className="text-orange text-xs font-heading uppercase tracking-wider">
+                    View Project →
+                  </span>
+                )}
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-8">
