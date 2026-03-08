@@ -222,6 +222,12 @@ const AdminPanel = () => {
               </div>
             </motion.div>
           )}
+
+          {tab === "images" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminProjectImages />
+            </motion.div>
+          )}
         </div>
       </div>
     </div>
