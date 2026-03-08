@@ -13,7 +13,7 @@ import AdminLeads from "@/components/admin/AdminLeads";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "whychooseus" | "leads" | "chatbot" | "images" | "descriptions";
+type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "leads" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
