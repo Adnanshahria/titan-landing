@@ -29,6 +29,10 @@ export interface SiteContent {
   contactFax: string;
   contactPhone2: string;
   contactOfficeHours: string;
+  footerCompanyName: string;
+  footerTagline: string;
+  footerCopyright: string;
+  footerServiceLinks: string[];
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
@@ -60,6 +64,10 @@ const defaultContent: SiteContent = {
   contactFax: "+880-2-9568037",
   contactPhone2: "01685-204406",
   contactOfficeHours: "Sun–Thu, 9AM–6PM",
+  footerCompanyName: "Techno-Tech Engineering Ltd.",
+  footerTagline: "Engineering Bangladesh's Industrial Future",
+  footerCopyright: "© 2025 Techno-Tech Engineering Ltd. All Rights Reserved.",
+  footerServiceLinks: ["Power Plant Works", "Civil & Mechanical", "Industrial Equipment", "Refractory & Insulation"],
   projectsTitle: "Major Reference Projects",
   projectsSubtitle: "Trusted by Bangladesh's largest public and private sector organizations",
   clientsTitle: "Trusted by Bangladesh's Leading Organizations",

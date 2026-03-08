@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe, ImageIcon, Inbox
+  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
@@ -13,7 +13,7 @@ import AdminLeads from "@/components/admin/AdminLeads";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "leads" | "chatbot" | "images" | "descriptions";
+type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -41,6 +41,7 @@ const AdminPanel = () => {
     { id: "certifications", label: "Certifications", icon: Settings },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "whychooseus", label: "Why Choose Us", icon: Settings },
+    { id: "footer", label: "Footer", icon: Layout },
     { id: "leads", label: "Leads", icon: Inbox },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
@@ -311,6 +312,40 @@ const AdminPanel = () => {
                 className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
               >
                 + Add Testimonial
+              </button>
+            </motion.div>
+          )}
+
+          {tab === "footer" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <Field label="Company Name" value={form.footerCompanyName} onChange={(v) => setForm({ ...form, footerCompanyName: v })} />
+              <Field label="Tagline" value={form.footerTagline} onChange={(v) => setForm({ ...form, footerTagline: v })} />
+              <Field label="Copyright Text" value={form.footerCopyright} onChange={(v) => setForm({ ...form, footerCopyright: v })} />
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm pt-2">Service Links</h3>
+              {form.footerServiceLinks.map((s, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <input
+                    value={s}
+                    onChange={(e) => {
+                      const next = [...form.footerServiceLinks];
+                      next[i] = e.target.value;
+                      setForm({ ...form, footerServiceLinks: next });
+                    }}
+                    className="flex-1 glass-card text-primary-foreground rounded-xl px-4 py-2.5 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all"
+                  />
+                  <button
+                    onClick={() => setForm({ ...form, footerServiceLinks: form.footerServiceLinks.filter((_, j) => j !== i) })}
+                    className="text-steel hover:text-destructive text-xs transition-colors"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => setForm({ ...form, footerServiceLinks: [...form.footerServiceLinks, "New Link"] })}
+                className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
+              >
+                + Add Service Link
               </button>
             </motion.div>
           )}
