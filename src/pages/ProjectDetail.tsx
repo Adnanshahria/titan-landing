@@ -175,28 +175,6 @@ const ProjectDetail = () => {
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground uppercase mb-5">Project Overview</h2>
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
-
-              {/* Prev/Next navigation */}
-              <div className="mt-10 grid grid-cols-2 gap-4">
-                {prevProject ? (
-                  <Link to={`/project/${prevProject.slug}`} className="group flex items-center gap-3 rounded-xl p-5 bg-card border-2 border-orange/20 hover:border-orange/50 transition-all shadow-md hover:shadow-lg">
-                    <ChevronLeft className="text-orange shrink-0" size={24} />
-                    <div className="min-w-0">
-                      <p className="text-orange text-xs font-heading font-semibold uppercase tracking-wider">Previous</p>
-                      <p className="font-heading text-foreground text-base font-bold uppercase truncate group-hover:text-orange transition-colors mt-1">{prevProject.name}</p>
-                    </div>
-                  </Link>
-                ) : <div />}
-                {nextProject ? (
-                  <Link to={`/project/${nextProject.slug}`} className="group flex items-center justify-end gap-3 rounded-xl p-5 bg-card border-2 border-orange/20 hover:border-orange/50 transition-all shadow-md hover:shadow-lg text-right">
-                    <div className="min-w-0">
-                      <p className="text-orange text-xs font-heading font-semibold uppercase tracking-wider">Next</p>
-                      <p className="font-heading text-foreground text-base font-bold uppercase truncate group-hover:text-orange transition-colors mt-1">{nextProject.name}</p>
-                    </div>
-                    <ChevronRight className="text-orange shrink-0" size={24} />
-                  </Link>
-                ) : <div />}
-              </div>
             </motion.div>
 
             {/* Sidebar */}
