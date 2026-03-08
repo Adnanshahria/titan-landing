@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      project_descriptions: {
+        Row: {
+          description: string
+          id: string
+          project_slug: string
+          updated_at: string
+        }
+        Insert: {
+          description?: string
+          id?: string
+          project_slug: string
+          updated_at?: string
+        }
+        Update: {
+          description?: string
+          id?: string
+          project_slug?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       project_images: {
         Row: {
           created_at: string
