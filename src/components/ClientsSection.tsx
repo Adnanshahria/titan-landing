@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useSiteContent } from "@/context/SiteContext";
 
 import bpdbLogo from "@/assets/clients/bpdb.png";
 import bwdbLogo from "@/assets/clients/bwdb.png";
