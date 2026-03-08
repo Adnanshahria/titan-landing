@@ -16,7 +16,7 @@ import { useSiteContent } from "@/context/SiteContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "mappins";
+type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "translations" | "mappins";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
