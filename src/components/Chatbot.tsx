@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X, Send, Bot, User } from "lucide-react";
 import { useSiteContent } from "@/context/SiteContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Message {
   role: "user" | "assistant";
@@ -10,13 +11,24 @@ interface Message {
 
 const Chatbot = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Hello! I'm the Techno-Tech AI assistant. How can I help you learn about our engineering services, projects, or certifications?" },
+    { role: "assistant", content: "" },
   ]);
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { content } = useSiteContent();
+
+  // Update greeting when language changes
+  useEffect(() => {
+    setMessages((prev) => {
+      if (prev.length === 1 && prev[0].role === "assistant") {
+        return [{ role: "assistant", content: t("chatbot.greeting") }];
+      }
+      return prev;
+    });
+  }, [t]);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
@@ -115,8 +127,8 @@ About: ${content.aboutText}
                 <Bot size={16} className="text-secondary-foreground" />
               </div>
               <div>
-                <p className="font-heading text-primary-foreground font-semibold text-sm uppercase">Techno-Tech AI</p>
-                <p className="text-steel text-xs">Engineering Assistant</p>
+                <p className="font-heading text-primary-foreground font-semibold text-sm uppercase">{t("chatbot.title")}</p>
+                <p className="text-steel text-xs">{t("chatbot.subtitle")}</p>
               </div>
             </div>
 
@@ -169,7 +181,7 @@ About: ${content.aboutText}
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about our services..."
+                placeholder={t("chatbot.placeholder")}
                 className="flex-1 glass-card text-primary-foreground rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-orange/30"
               />
               <button

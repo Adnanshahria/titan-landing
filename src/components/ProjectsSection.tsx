@@ -8,7 +8,15 @@ import { useSiteContent } from "@/context/SiteContext";
 import InteractiveProjectMap from "./InteractiveProjectMap";
 import { useLanguage } from "@/context/LanguageContext";
 
-const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "Sports", "Water"];
+const categoryKeys = [
+  { en: "All", key: "category.all" },
+  { en: "Power Sector", key: "category.powerSector" },
+  { en: "Cement", key: "category.cement" },
+  { en: "Fertilizer", key: "category.fertilizer" },
+  { en: "Refinery", key: "category.refinery" },
+  { en: "Sports", key: "category.sports" },
+  { en: "Water", key: "category.water" },
+];
 
 const ProjectsSection = () => {
   const { content } = useSiteContent();
@@ -36,18 +44,18 @@ const ProjectsSection = () => {
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {categories.map((c) => (
+          {categoryKeys.map((c) => (
             <button
-              key={c}
-              onClick={() => setFilter(c)}
+              key={c.en}
+              onClick={() => setFilter(c.en)}
               className={`text-[10px] uppercase tracking-[0.12em] px-4 py-1.5 rounded-full border-2 transition-all duration-400 ${
-                filter === c
+                filter === c.en
                   ? "bg-navy border-navy text-primary-foreground shadow-xl shadow-navy/20 scale-105"
                   : "border-steel text-muted-foreground hover:border-navy hover:text-foreground hover:bg-navy/5"
               }`}
               style={{ fontFamily: "'Abril Fatface', serif", letterSpacing: "0.12em" }}
             >
-              {c}
+              {t(c.key as any)}
             </button>
           ))}
         </div>

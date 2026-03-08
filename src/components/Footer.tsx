@@ -1,8 +1,10 @@
 import { ArrowRight, MapPin, Phone, Mail, Clock, Printer } from "lucide-react";
 import { useSiteContent } from "@/context/SiteContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Footer = () => {
   const { content } = useSiteContent();
+  const { t } = useLanguage();
   const phone2 = content.contactPhone2 || "01685-204406";
   const fax = content.contactFax || "+880-2-9568037";
   const hours = content.contactOfficeHours || "Sun–Thu, 9AM–6PM";
@@ -10,9 +12,17 @@ const Footer = () => {
   const contactItems = [
     { icon: MapPin, text: content.contactAddress },
     { icon: Phone, text: `${content.contactPhone} | ${phone2}` },
-    { icon: Printer, text: `Fax: ${fax}` },
+    { icon: Printer, text: `${t("footer.fax")}: ${fax}` },
     { icon: Mail, text: content.contactEmail },
-    { icon: Clock, text: `Office Hours: ${hours}` },
+    { icon: Clock, text: `${t("footer.officeHours")}: ${hours}` },
+  ];
+
+  const navLinks = [
+    { key: "nav.home", id: "home" },
+    { key: "nav.about", id: "about" },
+    { key: "nav.services", id: "services" },
+    { key: "nav.projects", id: "projects" },
+    { key: "nav.contact", id: "contact" },
   ];
 
   return (
@@ -31,7 +41,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 gap-8">
           <div className="glass-card rounded-xl p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Contact
+              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> {t("footer.contact")}
             </h4>
             <ul className="space-y-2.5">
               {contactItems.map((item) => (
@@ -44,13 +54,13 @@ const Footer = () => {
           </div>
           <div className="glass-card rounded-xl p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Quick Links & Services
+              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> {t("footer.quickLinks")}
             </h4>
             <div className="flex gap-4">
               <ul className="space-y-2 text-[11px] flex-1">
-                {["Home", "About", "Services", "Projects", "Contact"].map((l) => (
-                  <li key={l}>
-                    <a href={`#${l.toLowerCase()}`} className="text-steel hover:text-orange transition-colors">{l}</a>
+                {navLinks.map((l) => (
+                  <li key={l.id}>
+                    <a href={`#${l.id}`} className="text-steel hover:text-orange transition-colors">{t(l.key as any)}</a>
                   </li>
                 ))}
               </ul>

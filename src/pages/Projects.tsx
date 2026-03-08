@@ -4,12 +4,22 @@ import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/context/LanguageContext";
 
-const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "Sports", "Water"];
+const categoryKeys = [
+  { en: "All", key: "category.all" },
+  { en: "Power Sector", key: "category.powerSector" },
+  { en: "Cement", key: "category.cement" },
+  { en: "Fertilizer", key: "category.fertilizer" },
+  { en: "Refinery", key: "category.refinery" },
+  { en: "Sports", key: "category.sports" },
+  { en: "Water", key: "category.water" },
+];
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
   const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -18,26 +28,26 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h1 className="font-heading text-3xl md:text-5xl font-bold text-foreground uppercase heading-accent">
-              Our Projects
+              {t("projects.title")}
             </h1>
             <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-              Explore our complete portfolio of industrial and infrastructure projects across Bangladesh.
+              {t("projects.subtitle")}
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((c) => (
+            {categoryKeys.map((c) => (
               <button
-                key={c}
-                onClick={() => setFilter(c)}
+                key={c.en}
+                onClick={() => setFilter(c.en)}
                 className={`text-[10px] uppercase tracking-[0.12em] px-4 py-1.5 rounded-full border-2 transition-all duration-400 ${
-                  filter === c
+                  filter === c.en
                     ? "bg-navy border-navy text-primary-foreground shadow-xl shadow-navy/20 scale-105"
                     : "border-steel text-muted-foreground hover:border-navy hover:text-foreground hover:bg-navy/5"
                 }`}
                 style={{ fontFamily: "'Abril Fatface', serif", letterSpacing: "0.12em" }}
               >
-                {c}
+                {t(c.key as any)}
               </button>
             ))}
           </div>
@@ -81,7 +91,7 @@ const Projects = () => {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground mt-10">No projects found in this category.</p>
+            <p className="text-center text-muted-foreground mt-10">{t("projects.noProjects")}</p>
           )}
         </div>
       </section>
