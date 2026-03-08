@@ -5,7 +5,8 @@ import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
