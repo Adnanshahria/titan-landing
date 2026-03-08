@@ -79,6 +79,50 @@ const ProjectDetail = () => {
             </div>
           </motion.div>
 
+          {/* Prev / Next arrows + dots under gallery */}
+          <div className="flex items-center justify-center gap-4 mt-5">
+            {prevProject ? (
+              <Link
+                to={`/project/${prevProject.slug}`}
+                className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
+              >
+                <ChevronLeft size={20} />
+              </Link>
+            ) : (
+              <div className="w-11 h-11 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground cursor-not-allowed">
+                <ChevronLeft size={20} />
+              </div>
+            )}
+
+            {/* Dot indicators */}
+            <div className="flex items-center gap-2">
+              {projects.map((p, i) => (
+                <Link
+                  key={p.slug}
+                  to={`/project/${p.slug}`}
+                  className={`rounded-full transition-all duration-300 ${
+                    p.slug === slug
+                      ? "w-6 h-2.5 bg-orange"
+                      : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {nextProject ? (
+              <Link
+                to={`/project/${nextProject.slug}`}
+                className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
+              >
+                <ChevronRight size={20} />
+              </Link>
+            ) : (
+              <div className="w-11 h-11 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground cursor-not-allowed">
+                <ChevronRight size={20} />
+              </div>
+            )}
+          </div>
+
           {/* Project info below gallery */}
           <motion.div
             key={slug + "-info"}
