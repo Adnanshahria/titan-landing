@@ -73,7 +73,7 @@ const Navbar = () => {
           <img src={logoImg} alt="Techno-Tech Engineering Logo" className="w-10 h-10 object-contain" />
           <div className="h-6 w-[1px] bg-orange/40" />
           <span className="font-logo text-base sm:text-lg tracking-wider">
-            Techno-Tech Engineering
+            TTEL
           </span>
         </a>
 
