@@ -31,6 +31,9 @@ export interface SiteContent {
   contactFax: string;
   contactPhone2: string;
   contactOfficeHours: string;
+  contactTitle: string;
+  mapTitle: string;
+  mapEmbedUrl: string;
   footerCompanyName: string;
   footerTagline: string;
   footerCopyright: string;
