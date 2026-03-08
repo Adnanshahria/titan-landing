@@ -64,7 +64,7 @@ const ClientsSection = () => {
                     <img
                       src={c.logo}
                       alt={c.name}
-                      className="w-14 h-14 object-contain"
+                      className="w-14 h-14 object-contain rounded-full"
                       loading="lazy"
                     />
                   ) : (
