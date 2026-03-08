@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu, X, Languages } from "lucide-react";
 import logoImg from "@/assets/logo.png";
+import { useLanguage } from "@/context/LanguageContext";
 
-const navLinks = ["Home", "Services", "Projects", "Clients", "Certifications", "Contact"];
+const navKeys = ["Home", "Services", "Projects", "Clients", "Certifications", "Contact"] as const;
+
+const navTranslationMap: Record<string, string> = {
+  Home: "nav.home",
+  Services: "nav.services",
+  Projects: "nav.projects",
+  Clients: "nav.clients",
+  Certifications: "nav.certifications",
+  Contact: "nav.contact",
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,6 +24,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
   const showBg = scrolled || !isHome;
+  const { lang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -21,11 +32,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Track active section via IntersectionObserver
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.toLowerCase());
+    const sectionIds = navKeys.map((l) => l.toLowerCase());
     const observers: IntersectionObserver[] = [];
-
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -40,7 +49,6 @@ const Navbar = () => {
       observer.observe(el);
       observers.push(observer);
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
@@ -62,7 +70,6 @@ const Navbar = () => {
           : "bg-transparent py-5"
       }`}
     >
-      {/* Gradient bottom border on scroll */}
       {showBg && (
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-orange to-transparent opacity-40" />
       )}
@@ -72,14 +79,12 @@ const Navbar = () => {
         <a href="/" onClick={(e) => { e.preventDefault(); if (isHome) { scrollTo("home"); } else { navigate("/"); } }} className="flex items-center gap-3 text-primary-foreground group">
           <img src={logoImg} alt="Techno-Tech Engineering Logo" className="w-10 h-10 object-contain" />
           <div className="h-6 w-[1px] bg-orange/40" />
-          <span className="font-logo text-base sm:text-lg tracking-wider">
-            TTEL
-          </span>
+          <span className="font-logo text-base sm:text-lg tracking-wider">TTEL</span>
         </a>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-1">
-          {navLinks.map((l) => (
+          {navKeys.map((l) => (
             <button
               key={l}
               onClick={() => scrollTo(l)}
@@ -88,7 +93,7 @@ const Navbar = () => {
               <span className={`transition-colors duration-300 ${
                 activeSection === l ? "text-orange" : "text-steel hover:text-primary-foreground"
               }`}>
-                {l}
+                {t(navTranslationMap[l] as any)}
               </span>
               {activeSection === l && (
                 <motion.div
@@ -101,7 +106,17 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-3">
+          {/* Language toggle */}
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-steel/20 text-steel hover:text-orange hover:border-orange/30 transition-all text-xs font-heading font-semibold uppercase tracking-wider"
+            title={lang === "en" ? "বাংলায় দেখুন" : "Switch to English"}
+          >
+            <Languages size={14} />
+            {lang === "en" ? "বাং" : "EN"}
+          </button>
+
           <a href="tel:01711003072" className="flex items-center gap-2 text-steel text-sm hover:text-primary-foreground transition-colors">
             <div className="w-7 h-7 rounded-full bg-orange/10 flex items-center justify-center">
               <Phone size={12} className="text-orange" />
@@ -112,16 +127,26 @@ const Navbar = () => {
             onClick={() => scrollTo("contact")}
             className="bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold px-6 py-2.5 rounded-full text-sm uppercase tracking-wider transition-all duration-300 animate-gentle-pulse hover:shadow-lg hover:shadow-orange/20"
           >
-            Get a Quote
+            {t("nav.getQuote")}
           </button>
         </div>
 
-        <button className="lg:hidden text-primary-foreground ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={16} /> : <Menu size={16} className="scale-y-150" />}
-        </button>
+        {/* Mobile: lang toggle + hamburger */}
+        <div className="lg:hidden flex items-center gap-2 ml-auto">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-steel/20 text-steel text-[10px] font-heading font-semibold uppercase tracking-wider hover:text-orange hover:border-orange/30 transition-all"
+          >
+            <Languages size={12} />
+            {lang === "en" ? "বাং" : "EN"}
+          </button>
+          <button className="text-primary-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+            {mobileOpen ? <X size={16} /> : <Menu size={16} className="scale-y-150" />}
+          </button>
+        </div>
       </div>
 
-      {/* Mobile menu — full-height slide from right */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -140,13 +165,13 @@ const Navbar = () => {
               className="fixed top-0 right-0 bottom-0 w-72 bg-navy z-50 lg:hidden flex flex-col"
             >
               <div className="flex justify-between items-center px-6 py-5 border-b border-steel/10">
-                <span className="font-heading text-primary-foreground font-bold uppercase text-sm tracking-wider">Menu</span>
+                <span className="font-heading text-primary-foreground font-bold uppercase text-sm tracking-wider">{t("nav.menu")}</span>
                 <button onClick={() => setMobileOpen(false)} className="text-steel hover:text-primary-foreground transition-colors">
                   <X size={20} />
                 </button>
               </div>
               <div className="px-6 py-6 flex flex-col gap-1 flex-1">
-                {navLinks.map((l, i) => (
+                {navKeys.map((l, i) => (
                   <motion.button
                     key={l}
                     initial={{ opacity: 0, x: 20 }}
@@ -159,7 +184,7 @@ const Navbar = () => {
                         : "text-steel hover:text-primary-foreground hover:bg-steel/5"
                     }`}
                   >
-                    {l}
+                    {t(navTranslationMap[l] as any)}
                   </motion.button>
                 ))}
               </div>
@@ -171,7 +196,7 @@ const Navbar = () => {
                   onClick={() => scrollTo("contact")}
                   className="w-full bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground font-heading font-semibold px-5 py-3 rounded-full text-sm uppercase tracking-wider"
                 >
-                  Get a Quote
+                  {t("nav.getQuote")}
                 </button>
               </div>
             </motion.div>
