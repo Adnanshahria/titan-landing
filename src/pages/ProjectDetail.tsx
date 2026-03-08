@@ -145,7 +145,7 @@ const ProjectDetail = () => {
                   <item.icon className="text-orange" size={14} />
                   <span className="text-steel text-xs">{item.label}:</span>
                   <span className="text-primary-foreground text-xs font-semibold">{item.value}</span>
-                  {i < arr.length - 1 && <span className="text-steel/30 ml-4">|</span>}
+                  
                 </div>
               ))}
             </div>
