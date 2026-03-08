@@ -32,13 +32,13 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section className="py-20 bg-dark-bg noise-overlay relative overflow-hidden rounded-2xl">
+    <section className="py-10 bg-dark-bg noise-overlay relative overflow-hidden rounded-2xl">
       <div ref={ref} className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-14">
+        <div className="text-center mb-6">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase heading-accent">
             What Our Clients Say
           </h2>
-          <p className="mt-6 text-steel max-w-2xl mx-auto">
+          <p className="mt-3 text-steel max-w-2xl mx-auto text-sm">
             Trusted partnerships built on decades of engineering excellence
           </p>
         </div>
@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
               onClick={() => {
                 if (t.projectSlug) navigate(`/projects/${t.projectSlug}`);
               }}
-              className={`glass-card rounded-2xl p-6 md:p-8 gradient-border ${
+              className={`glass-card rounded-2xl p-4 md:p-5 gradient-border ${
                 t.projectSlug ? "cursor-pointer hover:border-orange/40 hover:shadow-lg hover:shadow-orange/10 transition-all" : ""
               }`}
             >
