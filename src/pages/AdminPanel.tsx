@@ -10,7 +10,7 @@ import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot";
+type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
