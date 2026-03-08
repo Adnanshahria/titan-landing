@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
+import logoImg from "@/assets/logo.png";
 
 const navLinks = ["Home", "Services", "Projects", "Clients", "Certifications", "Contact"];
 
