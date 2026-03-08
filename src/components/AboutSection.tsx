@@ -3,6 +3,13 @@ import { useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import aboutImg from "@/assets/about-img.jpg";
 
+const AboutSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], ["30px", "-30px"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["20px", "-20px"]);
+
   return (
     <section id="about" className="py-20 bg-steel-light overflow-hidden">
       <div ref={ref} className="container mx-auto px-4">
