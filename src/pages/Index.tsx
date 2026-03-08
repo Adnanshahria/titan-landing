@@ -9,6 +9,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <WhyChooseUs />
       <ContactSection />
       <Footer />
+      <Chatbot />
     </div>
   );
 };
