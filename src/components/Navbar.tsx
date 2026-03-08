@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 import logoImg from "@/assets/logo.png";
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
   const showBg = scrolled || !isHome;
 
@@ -45,6 +46,10 @@ const Navbar = () => {
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
+    if (!isHome) {
+      navigate("/#" + id.toLowerCase());
+      return;
+    }
     const el = document.getElementById(id.toLowerCase());
     el?.scrollIntoView({ behavior: "smooth" });
   };
@@ -64,7 +69,7 @@ const Navbar = () => {
 
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
-        <a href="/" onClick={(e) => { if (isHome) { e.preventDefault(); scrollTo("home"); } }} className="flex items-center gap-3 text-primary-foreground group">
+        <a href="/" onClick={(e) => { e.preventDefault(); if (isHome) { scrollTo("home"); } else { navigate("/"); } }} className="flex items-center gap-3 text-primary-foreground group">
           <img src={logoImg} alt="Techno-Tech Engineering Logo" className="w-10 h-10 object-contain" />
           <div className="h-6 w-[1px] bg-orange/40" />
           <span className="font-logo text-base sm:text-lg tracking-wider">
