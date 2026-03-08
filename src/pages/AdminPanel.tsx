@@ -4,16 +4,17 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout
+  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout, MapPin
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import AdminProjectDescriptions from "@/components/admin/AdminProjectDescriptions";
 import AdminLeads from "@/components/admin/AdminLeads";
+import AdminMapPins from "@/components/admin/AdminMapPins";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions";
+type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "mappins";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -46,6 +47,7 @@ const AdminPanel = () => {
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
     { id: "descriptions", label: "Descriptions", icon: FileText },
+    { id: "mappins", label: "Map Pins", icon: MapPin },
   ];
 
   return (
@@ -442,6 +444,12 @@ const AdminPanel = () => {
           {tab === "descriptions" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <AdminProjectDescriptions />
+            </motion.div>
+          )}
+
+          {tab === "mappins" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminMapPins />
             </motion.div>
           )}
         </div>

@@ -92,6 +92,54 @@ export type Database = {
         }
         Relationships: []
       }
+      project_map_pins: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          id: string
+          image_url: string
+          is_active: boolean
+          latitude: number
+          location: string
+          longitude: number
+          project_name: string
+          project_slug: string | null
+          updated_at: string
+          year: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string
+          is_active?: boolean
+          latitude: number
+          location?: string
+          longitude: number
+          project_name: string
+          project_slug?: string | null
+          updated_at?: string
+          year?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string
+          is_active?: boolean
+          latitude?: number
+          location?: string
+          longitude?: number
+          project_name?: string
+          project_slug?: string | null
+          updated_at?: string
+          year?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
