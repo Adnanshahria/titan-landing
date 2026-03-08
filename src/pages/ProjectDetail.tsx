@@ -5,7 +5,8 @@ import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -45,41 +46,31 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero - Gallery style */}
+      {/* Hero - Cover photo with navigation */}
       <section className="pt-28 pb-10 bg-steel-light">
         <div className="container mx-auto px-4">
-          {/* Image gallery grid */}
-          <motion.div
-            key={slug}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-4 gap-3 max-h-[480px]"
-          >
-            {/* Main large image */}
-            <div className="col-span-4 md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative h-[300px] md:h-full">
-              <img src={project.image} alt={project.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
-            </div>
-            {/* Top right */}
-            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
-              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "left center" }} />
-            </div>
-            {/* Top far right */}
-            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
-              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "right center" }} />
-            </div>
-            {/* Bottom right */}
-            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
-              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center top" }} />
-            </div>
-            {/* Bottom far right */}
-            <div className="col-span-2 md:col-span-1 rounded-2xl overflow-hidden h-[140px] md:h-auto">
-              <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center bottom" }} />
-            </div>
-          </motion.div>
+          {/* Cover photo */}
+          <div className="rounded-3xl overflow-hidden relative h-[350px] md:h-[480px]">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slug}
+                src={project.image}
+                alt={project.name}
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
+            {/* Category badge */}
+            <span className="absolute bottom-4 left-4 bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-4 py-1.5 rounded-full uppercase z-10">
+              {project.category}
+            </span>
+          </div>
 
-          {/* Prev / Next arrows + dots under gallery */}
+          {/* Navigation arrows + dots */}
           <div className="flex items-center justify-center gap-4 mt-5">
             {prevProject ? (
               <Link
@@ -94,9 +85,8 @@ const ProjectDetail = () => {
               </div>
             )}
 
-            {/* Dot indicators */}
             <div className="flex items-center gap-2">
-              {projects.map((p, i) => (
+              {projects.map((p) => (
                 <Link
                   key={p.slug}
                   to={`/project/${p.slug}`}
@@ -175,6 +165,24 @@ const ProjectDetail = () => {
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground uppercase mb-5">Project Overview</h2>
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
+              {/* Project Gallery */}
+              <div className="mt-8">
+                <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "left center" }} />
+                  </div>
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "right center" }} />
+                  </div>
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center top" }} />
+                  </div>
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center bottom" }} />
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Sidebar */}
