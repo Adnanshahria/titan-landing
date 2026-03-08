@@ -200,7 +200,7 @@ const ProjectDetail = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <div className="bg-card rounded-2xl p-6 gradient-border shadow-lg sticky top-24">
+              <div className="bg-card rounded-2xl p-5 gradient-border shadow-lg sticky top-24">
                 <h3 className="font-heading text-lg font-bold text-foreground uppercase mb-4">Scope of Work</h3>
                 <ul className="space-y-2.5">
                   {project.scope.map((item, i) => (
