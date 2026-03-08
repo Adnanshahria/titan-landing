@@ -4,15 +4,16 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe, ImageIcon
+  Save, Bot, Key, Database, Globe, ImageIcon, Inbox
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import AdminProjectDescriptions from "@/components/admin/AdminProjectDescriptions";
+import AdminLeads from "@/components/admin/AdminLeads";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "whychooseus" | "chatbot" | "images" | "descriptions";
+type Tab = "general" | "services" | "clients" | "testimonials" | "whychooseus" | "leads" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -39,6 +40,7 @@ const AdminPanel = () => {
     { id: "clients", label: "Clients", icon: Users },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "whychooseus", label: "Why Choose Us", icon: Settings },
+    { id: "leads", label: "Leads", icon: Inbox },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
     { id: "descriptions", label: "Descriptions", icon: FileText },
@@ -216,6 +218,12 @@ const AdminPanel = () => {
               >
                 + Add Testimonial
               </button>
+            </motion.div>
+          )}
+
+          {tab === "leads" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminLeads />
             </motion.div>
           )}
 
