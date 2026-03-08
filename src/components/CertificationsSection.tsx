@@ -1,15 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shield } from "lucide-react";
-
-const certs = [
-  { name: "Certificate of Incorporation", authority: "Registrar of Joint Stock Companies, Bangladesh", detail: "No. C-111369/13 | 2013" },
-  { name: "Boiler License", authority: "Government of Bangladesh", detail: "Industrial Boiler Works License" },
-  { name: "Income Tax Registered", authority: "National Board of Revenue, Bangladesh", detail: "TIN: 580489426429" },
-  { name: "Final Acceptance Certificate", authority: "Bangladesh Power Development Board", detail: "BPDB Approved Contractor" },
-];
+import { useSiteContent } from "@/context/SiteContext";
 
 const CertificationsSection = () => {
+  const { content } = useSiteContent();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -17,13 +12,13 @@ const CertificationsSection = () => {
     <section id="certifications" className="py-20 bg-steel-light rounded-lg">
       <div ref={ref} className="container mx-auto px-4">
         <div className="text-center mb-14">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground uppercase heading-accent">Certifications & Credentials</h2>
-          <p className="mt-6 text-muted-foreground">Legally registered, certified and government approved</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground uppercase heading-accent">{content.certificationsTitle}</h2>
+          <p className="mt-6 text-muted-foreground">{content.certificationsSubtitle}</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {certs.map((c, i) => (
+          {content.certifications.map((c, i) => (
             <motion.div
-              key={c.name}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}

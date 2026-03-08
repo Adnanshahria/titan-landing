@@ -20,6 +20,9 @@ export interface SiteContent {
   servicesSubtitle: string;
   services: { title: string; desc: string }[];
   clients: string[];
+  certificationsTitle: string;
+  certificationsSubtitle: string;
+  certifications: { name: string; detail: string; authority: string }[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   heroStats: { value: number; suffix: string; label: string }[];
   whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
