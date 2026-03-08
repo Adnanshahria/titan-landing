@@ -17,6 +17,7 @@ export interface Project {
   duration: string;
   scope: string[];
   details: string;
+  coordinates: { lat: number; lng: number };
 }
 
 export const projects: Project[] = [
