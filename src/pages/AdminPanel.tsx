@@ -4,7 +4,7 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout
+  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout, MapPin
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
