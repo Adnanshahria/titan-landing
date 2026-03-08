@@ -64,7 +64,7 @@ const Navbar = () => {
             <ArrowRight className="text-secondary-foreground" size={16} />
           </div>
           <div className="h-6 w-[1px] bg-orange/40" />
-          <span className="font-heading text-base sm:text-lg font-bold tracking-widest uppercase">
+          <span className="font-logo text-base sm:text-lg tracking-wider">
             Techno-Tech Engineering
           </span>
         </a>
