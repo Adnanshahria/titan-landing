@@ -64,7 +64,7 @@ const Navbar = () => {
 
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
-        <a href="#home" onClick={() => scrollTo("home")} className="flex items-center gap-3 text-primary-foreground group">
+        <a href="/" onClick={(e) => { if (isHome) { e.preventDefault(); scrollTo("home"); } }} className="flex items-center gap-3 text-primary-foreground group">
           <img src={logoImg} alt="Techno-Tech Engineering Logo" className="w-10 h-10 object-contain" />
           <div className="h-6 w-[1px] bg-orange/40" />
           <span className="font-logo text-base sm:text-lg tracking-wider">
