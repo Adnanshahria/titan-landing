@@ -38,18 +38,18 @@ const AdminPanel = () => {
   };
 
   const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
-    { id: "general", label: "General", icon: Home },
-    { id: "services", label: "Services", icon: FileText },
-    { id: "clients", label: "Clients", icon: Users },
-    { id: "certifications", label: "Certifications", icon: Settings },
-    { id: "testimonials", label: "Testimonials", icon: MessageSquare },
-    { id: "whychooseus", label: "Why Choose Us", icon: Settings },
-    { id: "footer", label: "Footer", icon: Layout },
-    { id: "leads", label: "Leads", icon: Inbox },
-    { id: "chatbot", label: "AI Chatbot", icon: Bot },
-    { id: "images", label: "Project Images", icon: ImageIcon },
-    { id: "descriptions", label: "Descriptions", icon: FileText },
-    { id: "mappins", label: "Map Pins", icon: MapPin },
+    { id: "general", label: t("admin.general"), icon: Home },
+    { id: "services", label: t("admin.services"), icon: FileText },
+    { id: "clients", label: t("admin.clients"), icon: Users },
+    { id: "certifications", label: t("admin.certifications"), icon: Settings },
+    { id: "testimonials", label: t("admin.testimonials"), icon: MessageSquare },
+    { id: "whychooseus", label: t("admin.whyChooseUs"), icon: Settings },
+    { id: "footer", label: t("admin.footer"), icon: Layout },
+    { id: "leads", label: t("admin.leads"), icon: Inbox },
+    { id: "chatbot", label: t("admin.chatbot"), icon: Bot },
+    { id: "images", label: t("admin.images"), icon: ImageIcon },
+    { id: "descriptions", label: t("admin.descriptions"), icon: FileText },
+    { id: "mappins", label: t("admin.mapPins"), icon: MapPin },
   ];
 
   return (
