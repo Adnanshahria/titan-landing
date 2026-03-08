@@ -14,7 +14,7 @@ const CertificationsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="certifications" className="py-20 bg-steel-light">
+    <section id="certifications" className="py-20 bg-steel-light rounded-lg">
       <div ref={ref} className="container mx-auto px-4">
         <div className="text-center mb-14">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground uppercase heading-accent">Certifications & Credentials</h2>

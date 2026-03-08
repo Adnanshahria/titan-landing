@@ -16,7 +16,7 @@ const ServicesSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-20 bg-dark-bg noise-overlay relative">
+    <section id="services" className="py-20 bg-dark-bg noise-overlay relative rounded-lg">
       <div ref={ref} className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-14">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase heading-accent">Our Core Services</h2>

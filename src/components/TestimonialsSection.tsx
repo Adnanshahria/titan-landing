@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
   const t = testimonials[current];
 
   return (
-    <section className="py-10 bg-dark-bg noise-overlay relative overflow-hidden rounded-2xl">
+    <section className="py-10 bg-dark-bg noise-overlay relative overflow-hidden rounded-lg">
       <div ref={ref} className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-6">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase heading-accent">

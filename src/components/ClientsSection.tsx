@@ -29,7 +29,7 @@ const ClientsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="clients" className="py-20 bg-dark-bg noise-overlay relative rounded-2xl">
+    <section id="clients" className="py-20 bg-dark-bg noise-overlay relative rounded-lg">
       <style>{`
         @keyframes shimmer {
           0% { transform: translateX(-100%); }
