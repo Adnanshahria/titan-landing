@@ -41,6 +41,7 @@ const AdminPanel = () => {
     { id: "certifications", label: "Certifications", icon: Settings },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "whychooseus", label: "Why Choose Us", icon: Settings },
+    { id: "footer", label: "Footer", icon: Layout },
     { id: "leads", label: "Leads", icon: Inbox },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
