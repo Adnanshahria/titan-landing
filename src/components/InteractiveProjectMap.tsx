@@ -92,8 +92,14 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
           </div>
 
           <AnimatePresence>
-            {activeTooltipPin && (
-              <motion.div initial={{ opacity: 0, y: 8, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8, scale: 0.9 }} transition={{ duration: 0.2 }} className={`absolute z-50 ${tappedPin ? "pointer-events-auto" : "pointer-events-none"}`} style={{ left: `${Math.min(Math.max(geoToSvg(activeTooltipPin.latitude, activeTooltipPin.longitude).x / 10, 20), 70)}%`, top: `${Math.max(geoToSvg(activeTooltipPin.latitude, activeTooltipPin.longitude).y / 10 - 2, 2)}%`, transform: "translate(-50%, -100%)" }}>
+            {activeTooltipPin && (() => {
+              const pinPos = geoToSvg(activeTooltipPin.latitude, activeTooltipPin.longitude);
+              const xPct = pinPos.x / 10;
+              const yPct = pinPos.y / 10;
+              // Clamp horizontal so tooltip doesn't overflow, but keep arrow pointing at pin
+              const tooltipLeft = Math.min(Math.max(xPct, 15), 85);
+              return (
+              <motion.div initial={{ opacity: 0, y: 8, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8, scale: 0.9 }} transition={{ duration: 0.2 }} className={`absolute z-50 ${tappedPin ? "pointer-events-auto" : "pointer-events-none"}`} style={{ left: `${tooltipLeft}%`, top: `${yPct - 3}%`, transform: "translate(-50%, -100%)" }}>
                 <div className="bg-card rounded-xl shadow-2xl border border-steel/20 overflow-hidden w-60">
                   {getPinImage(activeTooltipPin) && (
                     <div className="h-32 overflow-hidden relative">
