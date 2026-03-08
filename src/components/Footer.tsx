@@ -21,7 +21,7 @@ const Footer = () => {
         {/* Top: Logo & tagline */}
         <div className="flex flex-col items-center text-center mb-10">
           <div className="flex items-center gap-3 text-primary-foreground mb-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shadow-lg shadow-orange/20">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shadow-lg shadow-orange/20">
               <ArrowRight className="text-secondary-foreground" size={15} />
             </div>
             <span className="font-heading text-xl font-bold uppercase tracking-wide">Techno-Tech Engineering Ltd.</span>
@@ -31,7 +31,7 @@ const Footer = () => {
 
         {/* Columns */}
         <div className="grid sm:grid-cols-3 gap-8">
-          <div className="glass-card rounded-xl p-5">
+          <div className="glass-card rounded-lg p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Contact
             </h4>
@@ -44,7 +44,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="glass-card rounded-xl p-5">
+          <div className="glass-card rounded-lg p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Quick Links
             </h4>
@@ -56,7 +56,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="glass-card rounded-xl p-5">
+          <div className="glass-card rounded-lg p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Services
             </h4>
