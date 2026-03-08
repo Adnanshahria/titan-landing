@@ -8,6 +8,7 @@ import CertificationsSection from "@/components/CertificationsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ContactSection from "@/components/ContactSection";
+import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 
@@ -24,6 +25,7 @@ const Index = () => {
       <TestimonialsSection />
       <WhyChooseUs />
       <ContactSection />
+      <MapSection />
       <Footer />
       <Chatbot />
     </div>
