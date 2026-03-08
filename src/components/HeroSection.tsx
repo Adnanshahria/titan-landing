@@ -41,11 +41,17 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 };
 
 const HeroSection = () => {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.6, 0.9]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <img src={heroBg} alt="Industrial power plant" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/40" />
-      <div className="relative z-10 container mx-auto px-4 pt-24 pb-16 text-center">
+    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <motion.img style={{ y: bgY }} src={heroBg} alt="Industrial power plant" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+      <motion.div style={{ opacity: overlayOpacity }} className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/40" />
+      <motion.div style={{ y: contentY }} className="relative z-10 container mx-auto px-4 pt-24 pb-16 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
