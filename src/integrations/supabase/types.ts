@@ -140,6 +140,39 @@ export type Database = {
         }
         Relationships: []
       }
+      project_translations: {
+        Row: {
+          client_bn: string
+          description_bn: string
+          id: string
+          location_bn: string
+          name_bn: string
+          project_slug: string
+          scope_bn: string[]
+          updated_at: string
+        }
+        Insert: {
+          client_bn?: string
+          description_bn?: string
+          id?: string
+          location_bn?: string
+          name_bn?: string
+          project_slug: string
+          scope_bn?: string[]
+          updated_at?: string
+        }
+        Update: {
+          client_bn?: string
+          description_bn?: string
+          id?: string
+          location_bn?: string
+          name_bn?: string
+          project_slug?: string
+          scope_bn?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -4,18 +4,19 @@ import { projects } from "@/data/projects";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout, MapPin
+  Save, Bot, Key, Database, Globe, ImageIcon, Inbox, Layout, MapPin, Languages
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import AdminProjectDescriptions from "@/components/admin/AdminProjectDescriptions";
+import AdminProjectTranslations from "@/components/admin/AdminProjectTranslations";
 import AdminLeads from "@/components/admin/AdminLeads";
 import AdminMapPins from "@/components/admin/AdminMapPins";
 import { useSiteContent } from "@/context/SiteContext";
 import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "mappins";
+type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "translations" | "mappins";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -48,6 +49,7 @@ const AdminPanel = () => {
     { id: "chatbot", label: t("admin.chatbot"), icon: Bot },
     { id: "images", label: t("admin.images"), icon: ImageIcon },
     { id: "descriptions", label: t("admin.descriptions"), icon: FileText },
+    { id: "translations", label: "Translations (বাংলা)", icon: Languages },
     { id: "mappins", label: t("admin.mapPins"), icon: MapPin },
   ];
 
@@ -445,6 +447,12 @@ const AdminPanel = () => {
           {tab === "descriptions" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <AdminProjectDescriptions />
+            </motion.div>
+          )}
+
+          {tab === "translations" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminProjectTranslations />
             </motion.div>
           )}
 
