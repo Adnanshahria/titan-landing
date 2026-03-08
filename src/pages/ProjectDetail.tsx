@@ -1,17 +1,30 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, MapPin, Calendar, Clock, Building2, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import { useRef, useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { useProjectImages } from "@/hooks/useProjectImages";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
+  const { images: dbImages } = useProjectImages(slug);
+  const [imgIndex, setImgIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  // Build image list: DB images first, fallback to project.image
+  const allImages = dbImages.length > 0
+    ? dbImages.map((img) => img.image_url)
+    : project ? [project.image] : [];
+
+  // Reset index when slug changes
+  useEffect(() => {
+    setImgIndex(0);
+  }, [slug]);
 
   // Scroll to top on slug change
   useEffect(() => {
@@ -51,67 +64,62 @@ const ProjectDetail = () => {
         <div className="container mx-auto px-4">
           {/* Cover photo */}
           <div className="rounded-3xl overflow-hidden relative h-[350px] md:h-[480px]">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <motion.img
-                key={slug}
-                src={project.image}
-                alt={project.name}
-                initial={{ opacity: 0, x: 60 }}
+                key={`${slug}-${imgIndex}`}
+                src={allImages[imgIndex] || project.image}
+                alt={`${project.name} - Image ${imgIndex + 1}`}
+                initial={{ opacity: 0, x: direction >= 0 ? 60 : -60 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -60 }}
+                exit={{ opacity: 0, x: direction >= 0 ? -60 : 60 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </AnimatePresence>
             <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
-            {/* Category badge */}
             <span className="absolute bottom-4 left-4 bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-4 py-1.5 rounded-full uppercase z-10">
               {project.category}
             </span>
+            {/* Image counter */}
+            {allImages.length > 1 && (
+              <span className="absolute bottom-4 right-4 bg-navy/70 backdrop-blur-sm text-primary-foreground text-xs font-heading font-semibold px-3 py-1 rounded-full z-10">
+                {imgIndex + 1} / {allImages.length}
+              </span>
+            )}
           </div>
 
-          {/* Navigation arrows + dots */}
-          <div className="flex items-center justify-center gap-4 mt-5">
-            {prevProject ? (
-              <Link
-                to={`/project/${prevProject.slug}`}
+          {/* Image navigation arrows + dots */}
+          {allImages.length > 1 && (
+            <div className="flex items-center justify-center gap-4 mt-5">
+              <button
+                onClick={() => { setDirection(-1); setImgIndex((prev) => (prev - 1 + allImages.length) % allImages.length); }}
                 className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
               >
                 <ChevronLeft size={20} />
-              </Link>
-            ) : (
-              <div className="w-11 h-11 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground cursor-not-allowed">
-                <ChevronLeft size={20} />
-              </div>
-            )}
+              </button>
 
-            <div className="flex items-center gap-2">
-              {projects.map((p) => (
-                <Link
-                  key={p.slug}
-                  to={`/project/${p.slug}`}
-                  className={`rounded-full transition-all duration-300 ${
-                    p.slug === slug
-                      ? "w-6 h-2.5 bg-orange"
-                      : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
-                />
-              ))}
+              <div className="flex items-center gap-2">
+                {allImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { setDirection(i > imgIndex ? 1 : -1); setImgIndex(i); }}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === imgIndex
+                        ? "w-6 h-2.5 bg-orange"
+                        : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => { setDirection(1); setImgIndex((prev) => (prev + 1) % allImages.length); }}
+                className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
-
-            {nextProject ? (
-              <Link
-                to={`/project/${nextProject.slug}`}
-                className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
-              >
-                <ChevronRight size={20} />
-              </Link>
-            ) : (
-              <div className="w-11 h-11 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground cursor-not-allowed">
-                <ChevronRight size={20} />
-              </div>
-            )}
-          </div>
+          )}
 
           {/* Project info below gallery */}
           <motion.div
@@ -166,23 +174,26 @@ const ProjectDetail = () => {
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
               {/* Project Gallery */}
-              <div className="mt-8">
-                <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "left center" }} />
-                  </div>
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "right center" }} />
-                  </div>
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center top" }} />
-                  </div>
-                  <div className="h-44 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} view 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center bottom" }} />
+              {allImages.length > 1 && (
+                <div className="mt-8">
+                  <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {allImages.map((imgUrl, i) => (
+                      <div
+                        key={i}
+                        className="h-44 rounded-2xl overflow-hidden cursor-pointer"
+                        onClick={() => { setDirection(i > imgIndex ? 1 : -1); setImgIndex(i); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={`${project.name} view ${i + 1}`}
+                          className={`w-full h-full object-cover hover:scale-105 transition-all duration-700 ${i === imgIndex ? "ring-2 ring-orange" : "opacity-80 hover:opacity-100"}`}
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
+              )}
             </motion.div>
 
             {/* Sidebar */}

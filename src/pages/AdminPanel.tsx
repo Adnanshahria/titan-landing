@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Home, FileText, Users, Settings, MessageSquare, ArrowLeft,
-  Save, Bot, Key, Database, Globe
+  Save, Bot, Key, Database, Globe, ImageIcon
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
+import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot";
+type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -36,6 +37,7 @@ const AdminPanel = () => {
     { id: "clients", label: "Clients", icon: Users },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
+    { id: "images", label: "Project Images", icon: ImageIcon },
   ];
 
   return (
@@ -218,6 +220,12 @@ const AdminPanel = () => {
                 </div>
                 <Field label="AI System Prompt" value={form.chatbotConfig.systemPrompt} onChange={(v) => setForm({ ...form, chatbotConfig: { ...form.chatbotConfig, systemPrompt: v } })} textarea rows={6} />
               </div>
+            </motion.div>
+          )}
+
+          {tab === "images" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminProjectImages />
             </motion.div>
           )}
         </div>
