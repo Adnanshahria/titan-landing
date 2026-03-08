@@ -68,7 +68,6 @@ export default {
         },
         "dark-bg": "hsl(var(--dark-bg))",
         "footer-bg": "hsl(var(--footer-bg))",
-        "purple-accent": "hsl(var(--purple-accent))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
