@@ -64,67 +64,62 @@ const ProjectDetail = () => {
         <div className="container mx-auto px-4">
           {/* Cover photo */}
           <div className="rounded-3xl overflow-hidden relative h-[350px] md:h-[480px]">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
               <motion.img
-                key={slug}
-                src={project.image}
-                alt={project.name}
-                initial={{ opacity: 0, x: 60 }}
+                key={`${slug}-${imgIndex}`}
+                src={allImages[imgIndex] || project.image}
+                alt={`${project.name} - Image ${imgIndex + 1}`}
+                initial={{ opacity: 0, x: direction >= 0 ? 60 : -60 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -60 }}
+                exit={{ opacity: 0, x: direction >= 0 ? -60 : 60 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </AnimatePresence>
             <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
-            {/* Category badge */}
             <span className="absolute bottom-4 left-4 bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-4 py-1.5 rounded-full uppercase z-10">
               {project.category}
             </span>
+            {/* Image counter */}
+            {allImages.length > 1 && (
+              <span className="absolute bottom-4 right-4 bg-navy/70 backdrop-blur-sm text-primary-foreground text-xs font-heading font-semibold px-3 py-1 rounded-full z-10">
+                {imgIndex + 1} / {allImages.length}
+              </span>
+            )}
           </div>
 
-          {/* Navigation arrows + dots */}
-          <div className="flex items-center justify-center gap-4 mt-5">
-            {prevProject ? (
-              <Link
-                to={`/project/${prevProject.slug}`}
+          {/* Image navigation arrows + dots */}
+          {allImages.length > 1 && (
+            <div className="flex items-center justify-center gap-4 mt-5">
+              <button
+                onClick={() => { setDirection(-1); setImgIndex((prev) => (prev - 1 + allImages.length) % allImages.length); }}
                 className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
               >
                 <ChevronLeft size={20} />
-              </Link>
-            ) : (
-              <div className="w-11 h-11 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground cursor-not-allowed">
-                <ChevronLeft size={20} />
-              </div>
-            )}
+              </button>
 
-            <div className="flex items-center gap-2">
-              {projects.map((p) => (
-                <Link
-                  key={p.slug}
-                  to={`/project/${p.slug}`}
-                  className={`rounded-full transition-all duration-300 ${
-                    p.slug === slug
-                      ? "w-6 h-2.5 bg-orange"
-                      : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                  }`}
-                />
-              ))}
+              <div className="flex items-center gap-2">
+                {allImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => { setDirection(i > imgIndex ? 1 : -1); setImgIndex(i); }}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === imgIndex
+                        ? "w-6 h-2.5 bg-orange"
+                        : "w-2.5 h-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => { setDirection(1); setImgIndex((prev) => (prev + 1) % allImages.length); }}
+                className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
+              >
+                <ChevronRight size={20} />
+              </button>
             </div>
-
-            {nextProject ? (
-              <Link
-                to={`/project/${nextProject.slug}`}
-                className="w-11 h-11 rounded-full bg-orange flex items-center justify-center text-secondary-foreground hover:bg-orange-glow transition-colors shadow-md"
-              >
-                <ChevronRight size={20} />
-              </Link>
-            ) : (
-              <div className="w-11 h-11 rounded-full bg-muted/30 flex items-center justify-center text-muted-foreground cursor-not-allowed">
-                <ChevronRight size={20} />
-              </div>
-            )}
-          </div>
+          )}
 
           {/* Project info below gallery */}
           <motion.div
