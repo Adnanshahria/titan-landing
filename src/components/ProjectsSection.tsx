@@ -35,11 +35,12 @@ const ProjectsSection = () => {
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className={`font-heading text-sm uppercase tracking-wider px-5 py-2.5 rounded-full border transition-all duration-300 ${
+              className={`text-xs uppercase tracking-[0.15em] px-6 py-2.5 rounded-full border transition-all duration-400 ${
                 filter === c
-                  ? "bg-gradient-to-r from-orange to-orange-glow border-orange text-secondary-foreground shadow-lg shadow-orange/20"
-                  : "border-muted text-muted-foreground hover:border-orange hover:text-orange"
+                  ? "bg-navy border-navy text-primary-foreground shadow-xl shadow-navy/20 scale-105"
+                  : "border-steel/40 text-muted-foreground hover:border-navy hover:text-foreground hover:bg-navy/5 backdrop-blur-sm"
               }`}
+              style={{ fontFamily: "'Abril Fatface', serif", letterSpacing: "0.12em" }}
             >
               {c}
             </button>
