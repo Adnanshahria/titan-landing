@@ -33,10 +33,12 @@ const ServicesSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group glass-card rounded-2xl p-6 gradient-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange/5 transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                <s.icon className="text-secondary-foreground" size={24} />
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <s.icon className="text-secondary-foreground" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-primary-foreground uppercase" style={{ fontFamily: "'Abril Fatface', serif" }}>{s.title}</h3>
               </div>
-              <h3 className="font-heading text-xl font-semibold text-primary-foreground uppercase mb-3">{s.title}</h3>
               <p className="text-steel text-sm leading-relaxed">{s.desc}</p>
             </motion.div>
           ))}
