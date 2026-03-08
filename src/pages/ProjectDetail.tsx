@@ -129,12 +129,6 @@ const ProjectDetail = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6"
           >
-            <div className="flex flex-wrap items-center gap-3 mb-3">
-              <span className="inline-block bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-4 py-1.5 rounded-full uppercase">
-                {project.category}
-              </span>
-              <span className="text-muted-foreground text-xs uppercase tracking-wider">{project.year}</span>
-            </div>
             <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight max-w-4xl">
               {project.name}
             </h1>
