@@ -22,7 +22,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-steel-light">
+    <section id="projects" className="py-20 bg-steel-light rounded-lg">
       <div ref={ref} className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground uppercase heading-accent">Major Reference Projects</h2>

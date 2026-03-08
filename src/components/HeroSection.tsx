@@ -48,7 +48,7 @@ const HeroSection = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   return (
-    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden rounded-lg">
       <motion.img style={{ y: bgY }} src={heroBg} alt="Industrial power plant" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
       <motion.div style={{ opacity: overlayOpacity }} className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/40" />
       <motion.div style={{ y: contentY }} className="relative z-10 container mx-auto px-4 pt-24 pb-16 text-center">

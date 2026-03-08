@@ -11,7 +11,7 @@ const AboutSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], ["20px", "-20px"]);
 
   return (
-    <section id="about" className="py-20 bg-steel-light overflow-hidden">
+    <section id="about" className="py-20 bg-steel-light overflow-hidden rounded-lg">
       <div ref={ref} className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div

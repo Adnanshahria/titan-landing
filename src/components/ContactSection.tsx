@@ -32,7 +32,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-10 bg-dark-bg noise-overlay relative rounded-2xl">
+    <section id="contact" className="py-10 bg-dark-bg noise-overlay relative rounded-lg">
       <div ref={ref} className="container mx-auto px-4 relative z-10 max-w-2xl">
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground uppercase text-center mb-8 heading-accent">Get In Touch</h2>
         <motion.form

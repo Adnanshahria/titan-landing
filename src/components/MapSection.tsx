@@ -1,6 +1,6 @@
 const MapSection = () => {
   return (
-    <section id="location" className="bg-dark-bg noise-overlay relative rounded-2xl">
+    <section id="location" className="bg-dark-bg noise-overlay relative rounded-lg">
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground uppercase text-center mb-8 heading-accent mx-auto w-fit">
           Our Location
