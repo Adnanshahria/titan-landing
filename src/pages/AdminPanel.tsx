@@ -221,6 +221,12 @@ const AdminPanel = () => {
             </motion.div>
           )}
 
+          {tab === "leads" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminLeads />
+            </motion.div>
+          )}
+
           {tab === "chatbot" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
               <div className="glass-card rounded-xl p-5 gradient-border space-y-4">
