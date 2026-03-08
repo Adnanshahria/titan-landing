@@ -4,6 +4,8 @@ import chhatakImg from "@/assets/projects/chhatak-cement.jpg";
 import jamunaImg from "@/assets/projects/jamuna-fertilizer.jpg";
 import easternImg from "@/assets/projects/eastern-refinery.jpg";
 import sylhetImg from "@/assets/projects/sylhet-stadium.jpg";
+import khulnaImg from "@/assets/projects/khulna-hitech-park.jpg";
+import barishalImg from "@/assets/projects/barishal-gas-turbine.jpg";
 
 export interface Project {
   slug: string;
@@ -146,5 +148,47 @@ export const projects: Project[] = [
     details:
       "The Sylhet Sports Complex project represented a diversification of our capabilities into civil infrastructure. Commissioned by the National Sports Council, this project involved comprehensive land development and the construction of a reinforced concrete boundary wall enclosing the sports complex. Our civil engineering team managed the entire process — from earthworks and foundation laying through to the finished perimeter wall and integrated drainage system.",
     coordinates: { lat: 24.8949, lng: 91.8687 },
+  },
+  {
+    slug: "khulna-hitech-park",
+    name: "Khulna Hi-Tech Park — Electrical & Mechanical Works",
+    client: "Bangladesh Hi-Tech Park Authority",
+    year: "2021",
+    category: "Power Sector",
+    desc: "Complete electrical infrastructure, substation installation & mechanical services for the Hi-Tech Park.",
+    image: khulnaImg,
+    location: "Khulna",
+    duration: "16 Months",
+    scope: [
+      "33/11kV substation design & installation",
+      "Underground power cable network",
+      "Mechanical HVAC system installation",
+      "Fire detection & suppression systems",
+      "Testing, commissioning & handover",
+    ],
+    details:
+      "The Khulna Hi-Tech Park project involved delivering complete electrical and mechanical infrastructure for one of Bangladesh's flagship technology hubs. Techno-Tech was responsible for the design and installation of a 33/11kV substation, extensive underground power distribution networks, and full mechanical services including industrial-grade HVAC and fire protection systems — all executed to international standards within a tight timeline.",
+    coordinates: { lat: 22.8456, lng: 89.5403 },
+  },
+  {
+    slug: "barishal-gas-turbine",
+    name: "Barishal 50MW Gas Turbine Power Plant",
+    client: "Bangladesh Power Development Board (BPDB)",
+    year: "2020",
+    category: "Power Sector",
+    desc: "Maintenance, overhauling & repair of 50MW gas turbine unit and auxiliary systems.",
+    image: barishalImg,
+    location: "Barishal",
+    duration: "10 Months",
+    scope: [
+      "Gas turbine major overhaul & inspection",
+      "Generator stator & rotor reconditioning",
+      "Control system upgrade & modernization",
+      "Auxiliary boiler maintenance",
+      "Performance testing & efficiency optimization",
+    ],
+    details:
+      "The Barishal 50MW Gas Turbine Power Plant required a comprehensive overhaul to restore its generating capacity and improve operational efficiency. Techno-Tech's specialist team carried out a major gas turbine inspection including blade replacement, hot gas path component reconditioning, and generator overhaul. The control system was modernized with digital instrumentation, significantly improving plant reliability and reducing maintenance intervals.",
+    coordinates: { lat: 22.7010, lng: 90.3535 },
   },
 ];
