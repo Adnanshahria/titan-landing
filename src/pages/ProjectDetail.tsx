@@ -165,7 +165,7 @@ const ProjectDetail = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="lg:col-span-2"
             >
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground uppercase mb-5">Project Overview</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground uppercase mb-5" style={{ fontFamily: "'Abril Fatface', serif" }}>Overview</h2>
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
               {/* Project Gallery */}
