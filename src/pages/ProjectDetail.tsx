@@ -134,7 +134,7 @@ const ProjectDetail = () => {
             </h1>
 
             {/* Info card */}
-            <div className="mt-5 glass-card rounded-2xl px-5 py-4 border border-steel/15 backdrop-blur-md inline-flex flex-wrap gap-x-6 gap-y-2">
+            <div className="mt-5 rounded-2xl px-5 py-4 bg-navy/90 backdrop-blur-md border border-steel/15 inline-flex flex-wrap gap-x-6 gap-y-2 shadow-lg">
               {[
                 { icon: Building2, label: "Client", value: project.client },
                 { icon: MapPin, label: "Location", value: project.location },
@@ -143,9 +143,9 @@ const ProjectDetail = () => {
               ].map((item, i, arr) => (
                 <div key={item.label} className="flex items-center gap-2">
                   <item.icon className="text-orange" size={14} />
-                  <span className="text-muted-foreground text-xs">{item.label}:</span>
-                  <span className="text-foreground text-xs font-semibold">{item.value}</span>
-                  {i < arr.length - 1 && <span className="text-steel/20 ml-4">|</span>}
+                  <span className="text-steel text-xs">{item.label}:</span>
+                  <span className="text-primary-foreground text-xs font-semibold">{item.value}</span>
+                  {i < arr.length - 1 && <span className="text-steel/30 ml-4">|</span>}
                 </div>
               ))}
             </div>
