@@ -11,7 +11,7 @@ import AdminProjectDescriptions from "@/components/admin/AdminProjectDescription
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images";
+type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
