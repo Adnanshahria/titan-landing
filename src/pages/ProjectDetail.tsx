@@ -62,7 +62,7 @@ const ProjectDetail = () => {
       <Navbar />
 
       {/* Hero - Cover photo with navigation */}
-      <section className="pt-28 pb-10 bg-steel-light">
+      <section className="pt-28 pb-4 bg-steel-light">
         <div className="container mx-auto px-4">
           {/* Cover photo */}
           <div className="rounded-3xl overflow-hidden relative h-[350px] md:h-[480px]">
