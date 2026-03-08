@@ -17,6 +17,7 @@ export interface Project {
   duration: string;
   scope: string[];
   details: string;
+  coordinates: { lat: number; lng: number };
 }
 
 export const projects: Project[] = [
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     ],
     details:
       "This landmark project involved the comprehensive upgrading of the Dohazari 100MW Peaking Power Plant for BPDB. Our scope included the careful removal of aging fuel pipeline infrastructure and replacement with modern systems, along with the installation of 11kV underground cable networks. The project demanded precision engineering and adherence to strict safety protocols given the operational nature of the facility.",
+    coordinates: { lat: 22.1522, lng: 92.0765 },
   },
   {
     slug: "rangpur-20mw-chimney",
@@ -59,6 +61,7 @@ export const projects: Project[] = [
     ],
     details:
       "The Rangpur 20MW Gas Turbine Power Station required a complete chimney renovation to meet updated emission standards and structural integrity requirements. Techno-Tech undertook this project on a turnkey basis — from initial structural assessment through to final commissioning. The project included specialized refractory lining to withstand high exhaust temperatures and seismic reinforcement for long-term durability.",
+    coordinates: { lat: 25.7439, lng: 89.2752 },
   },
   {
     slug: "chhatak-cement-mill-repair",
@@ -79,6 +82,7 @@ export const projects: Project[] = [
     ],
     details:
       "Chhatak Cement Company entrusted Techno-Tech with the critical task of overhauling three major cement mills simultaneously. This required meticulous planning to minimize production downtime. Our team of specialized mechanical engineers carried out precision bearing replacements, shaft realignments, and comprehensive gear system reconditioning — restoring all three mills to optimal operational efficiency.",
+    coordinates: { lat: 25.0353, lng: 91.6680 },
   },
   {
     slug: "jamuna-fertilizer-urea-stripper",
@@ -99,6 +103,7 @@ export const projects: Project[] = [
     ],
     details:
       "The replacement of the Urea Stripper at Jamuna Fertilizer's Jamalpur plant was one of the most technically demanding projects in our portfolio. The stripper column — a critical component in the urea synthesis loop — required careful removal and replacement with a new unit. This involved heavy crane operations for lifting the multi-ton column, precision alignment, and extensive welding and pressure testing to ensure leak-free operation under high-temperature, high-pressure conditions.",
+    coordinates: { lat: 24.9375, lng: 89.9372 },
   },
   {
     slug: "eastern-refinery-distillation",
@@ -119,6 +124,7 @@ export const projects: Project[] = [
     ],
     details:
       "Eastern Refinery's atmospheric distillation unit is the heart of Bangladesh's petroleum refining capability. Techno-Tech was selected for the critical revamping of furnaces F-1101 A and B — involving complete refractory relining, burner system modernization, and tube replacement. The project was executed during a planned turnaround window, requiring round-the-clock operations to meet the tight schedule while maintaining the highest safety standards in this hazardous environment.",
+    coordinates: { lat: 22.3569, lng: 91.7832 },
   },
   {
     slug: "sylhet-sports-complex",
@@ -139,5 +145,6 @@ export const projects: Project[] = [
     ],
     details:
       "The Sylhet Sports Complex project represented a diversification of our capabilities into civil infrastructure. Commissioned by the National Sports Council, this project involved comprehensive land development and the construction of a reinforced concrete boundary wall enclosing the sports complex. Our civil engineering team managed the entire process — from earthworks and foundation laying through to the finished perimeter wall and integrated drainage system.",
+    coordinates: { lat: 24.8949, lng: 91.8687 },
   },
 ];

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
 import PhotoLightbox from "./PhotoLightbox";
 import { useSiteContent } from "@/context/SiteContext";
+import InteractiveProjectMap from "./InteractiveProjectMap";
 
 const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "Sports", "Water"];
 
@@ -82,6 +83,20 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Interactive Project Map */}
+        <div className="mt-14">
+          <div className="text-center mb-6">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground uppercase">
+              Project Locations
+            </h3>
+            <p className="text-muted-foreground text-sm mt-2">
+              Hover over the pins to explore our projects across Bangladesh
+            </p>
+          </div>
+          <InteractiveProjectMap filterCategory={filter} />
+        </div>
+
         <div className="text-center mt-10">
           <Link
             to="/projects"
