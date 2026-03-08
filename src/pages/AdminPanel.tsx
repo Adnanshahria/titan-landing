@@ -21,6 +21,7 @@ const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
   const [tab, setTab] = useState<Tab>("general");
   const { content, updateContent } = useSiteContent();
+  const { t } = useLanguage();
 
   // Local editable state
   const [form, setForm] = useState({ ...content });
