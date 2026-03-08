@@ -1,0 +1,100 @@
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Download } from "lucide-react";
+import heroBg from "@/assets/hero-bg.jpg";
+
+const stats = [
+  { value: 30, suffix: "+", label: "Years Experience" },
+  { value: 46, suffix: "+", label: "Projects Completed" },
+  { value: 15, suffix: "+", label: "Government Clients" },
+  { value: 1995, suffix: "", label: "Established" },
+];
+
+const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [inView, target]);
+
+  return (
+    <span ref={ref} className="font-heading text-4xl md:text-5xl font-bold text-orange">
+      {count}{suffix}
+    </span>
+  );
+};
+
+const HeroSection = () => {
+  return (
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <img src={heroBg} alt="Industrial power plant" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/40" />
+      <div className="relative z-10 container mx-auto px-4 pt-24 pb-16 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase leading-tight max-w-5xl mx-auto"
+        >
+          Bangladesh's Most Trusted Engineering Construction Company
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-6 text-steel text-lg md:text-xl max-w-2xl mx-auto"
+        >
+          30 Years of Excellence in Power, Energy & Industrial Sector
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 bg-orange hover:bg-orange-glow text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-sm uppercase tracking-wider transition-colors"
+          >
+            View Our Projects <ArrowRight size={18} />
+          </a>
+          <button className="inline-flex items-center gap-2 border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-navy font-heading font-semibold px-8 py-3 rounded-sm uppercase tracking-wider transition-colors">
+            <Download size={18} /> Download Company Profile
+          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+        >
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col items-center">
+              <Counter target={s.value} suffix={s.suffix} />
+              <span className="text-steel text-sm mt-2 uppercase tracking-wider">{s.label}</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
