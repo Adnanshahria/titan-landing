@@ -2,13 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-
-const stats = [
-  { value: 30, suffix: "+", label: "Years Experience" },
-  { value: 46, suffix: "+", label: "Projects Completed" },
-  { value: 15, suffix: "+", label: "Government Clients" },
-  { value: 1995, suffix: "", label: "Established" },
-];
+import { useSiteContent } from "@/context/SiteContext";
 
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
