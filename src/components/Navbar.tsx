@@ -58,7 +58,7 @@ const Navbar = () => {
       }`}
     >
       {/* Gradient bottom border on scroll */}
-      {scrolled && (
+      {showBg && (
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-orange to-transparent opacity-40" />
       )}
 
