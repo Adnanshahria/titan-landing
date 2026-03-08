@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Cards */}
-          <div className="relative min-h-[260px] sm:min-h-[220px]">
+          <div className="relative h-[200px] sm:h-[180px]">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
