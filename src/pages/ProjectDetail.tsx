@@ -156,9 +156,9 @@ const ProjectDetail = () => {
       </section>
 
       {/* Content */}
-      <section className="py-2 bg-steel-light">
+      <section className="py-2 pb-6 bg-steel-light">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-1 lg:gap-6">
+          <div className="grid lg:grid-cols-3 gap-1 lg:gap-6 items-start">
             {/* Main */}
             <motion.div
               key={slug + "-content"}
@@ -199,9 +199,8 @@ const ProjectDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="-mt-2 lg:-mt-10"
             >
-              <div className="bg-card rounded-2xl p-5 gradient-border shadow-lg sticky top-24">
+              <div className="bg-card rounded-2xl p-5 gradient-border shadow-lg">
                 <h3 className="font-heading text-lg font-bold text-foreground uppercase mb-4">Scope of Work</h3>
                 <ul className="space-y-2.5">
                   {project.scope.map((item, i) => (
