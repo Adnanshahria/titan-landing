@@ -70,11 +70,11 @@ const HeroSection = () => {
         >
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 bg-orange hover:bg-orange-glow text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-sm uppercase tracking-wider transition-colors"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-orange/20"
           >
             View Our Projects <ArrowRight size={18} />
           </a>
-          <button className="inline-flex items-center gap-2 border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-navy font-heading font-semibold px-8 py-3 rounded-sm uppercase tracking-wider transition-colors">
+          <button className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-navy font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 backdrop-blur-sm">
             <Download size={18} /> Download Company Profile
           </button>
         </motion.div>
@@ -86,7 +86,7 @@ const HeroSection = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
         >
           {stats.map((s) => (
-            <div key={s.label} className="flex flex-col items-center">
+            <div key={s.label} className="glass-card rounded-2xl py-5 px-4 flex flex-col items-center">
               <Counter target={s.value} suffix={s.suffix} />
               <span className="text-steel text-sm mt-2 uppercase tracking-wider">{s.label}</span>
             </div>

@@ -16,11 +16,11 @@ const ServicesSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-20 bg-dark-bg">
-      <div ref={ref} className="container mx-auto px-4">
+    <section id="services" className="py-20 bg-dark-bg noise-overlay relative">
+      <div ref={ref} className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-14">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase">Our Core Services</h2>
-          <p className="mt-4 text-steel max-w-2xl mx-auto">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase heading-accent">Our Core Services</h2>
+          <p className="mt-6 text-steel max-w-2xl mx-auto">
             End-to-end engineering solutions across Bangladesh's energy and industrial sectors
           </p>
         </div>
@@ -31,9 +31,11 @@ const ServicesSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-navy-card rounded-sm p-6 border-t-2 border-transparent hover:border-orange transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group glass-card rounded-2xl p-6 gradient-border hover:-translate-y-2 hover:shadow-2xl hover:shadow-orange/5 transition-all duration-500"
             >
-              <s.icon className="text-orange mb-4" size={36} />
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <s.icon className="text-secondary-foreground" size={24} />
+              </div>
               <h3 className="font-heading text-xl font-semibold text-primary-foreground uppercase mb-3">{s.title}</h3>
               <p className="text-steel text-sm leading-relaxed">{s.desc}</p>
             </motion.div>

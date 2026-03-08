@@ -1,12 +1,14 @@
 import { ArrowRight } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-footer-bg border-t-2 border-orange">
+  <footer className="bg-footer-bg border-t-2 border-orange/30">
     <div className="container mx-auto px-4 py-14">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
         <div>
-          <div className="flex items-center gap-2 text-primary-foreground mb-4">
-            <ArrowRight className="text-orange" size={18} />
+          <div className="flex items-center gap-3 text-primary-foreground mb-4">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center">
+              <ArrowRight className="text-secondary-foreground" size={14} />
+            </div>
             <span className="font-heading text-lg font-bold uppercase">Techno-Tech Engineering Ltd.</span>
           </div>
           <p className="text-steel text-sm">Engineering Bangladesh's Industrial Future</p>

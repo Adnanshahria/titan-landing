@@ -17,9 +17,11 @@ const AboutSection = () => {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="border-4 border-orange rounded-sm overflow-hidden">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-orange/10 border-2 border-orange/20">
               <img src={aboutImg} alt="Engineers at industrial construction site" className="w-full h-[400px] object-cover" loading="lazy" />
             </div>
+            {/* Decorative accent */}
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-gradient-to-br from-orange to-orange-glow opacity-20 -z-10" />
           </motion.div>
 
           <motion.div
@@ -34,7 +36,7 @@ const AboutSection = () => {
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Techno-Tech Engineering Ltd. was established in 1995 as a Mechanical Construction firm by a group of competent and qualified engineers. Since inception, the company has successfully completed sophisticated projects in Gas Pipeline, Storage Tanks, Power Plant, Oil Refinery & Industrial sectors.
             </p>
-            <div className="mt-6 border-l-4 border-orange bg-card p-4 rounded-r-sm">
+            <div className="mt-6 border-l-4 border-orange bg-card rounded-r-xl p-4 shadow-sm">
               <p className="text-foreground font-medium text-sm leading-relaxed">
                 Certified Boiler License Holder for Industrial Boiler Works — with vast expertise in refractory, insulation, fabrication, installation and welding works.
               </p>

@@ -14,9 +14,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-dark-bg">
-      <div ref={ref} className="container mx-auto px-4">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase text-center mb-14">Get In Touch</h2>
+    <section id="contact" className="py-20 bg-dark-bg noise-overlay relative">
+      <div ref={ref} className="container mx-auto px-4 relative z-10">
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase text-center mb-14 heading-accent">Get In Touch</h2>
         <div className="grid lg:grid-cols-2 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -32,8 +32,10 @@ const ContactSection = () => {
               { icon: Clock, text: "Office Hours: Sun–Thu, 9AM–6PM" },
             ].map((item) => (
               <div key={item.text} className="flex items-start gap-4">
-                <item.icon className="text-orange shrink-0 mt-1" size={20} />
-                <span className="text-steel text-sm">{item.text}</span>
+                <div className="w-10 h-10 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
+                  <item.icon className="text-orange" size={18} />
+                </div>
+                <span className="text-steel text-sm mt-2">{item.text}</span>
               </div>
             ))}
           </motion.div>
@@ -46,14 +48,14 @@ const ContactSection = () => {
             className="space-y-4"
           >
             <div className="grid sm:grid-cols-2 gap-4">
-              <input required placeholder="Full Name" className="bg-navy-card border border-steel/20 text-primary-foreground rounded-sm px-4 py-3 text-sm focus:border-orange focus:outline-none transition-colors" />
-              <input placeholder="Company Name" className="bg-navy-card border border-steel/20 text-primary-foreground rounded-sm px-4 py-3 text-sm focus:border-orange focus:outline-none transition-colors" />
+              <input required placeholder="Full Name" className="glass-card text-primary-foreground rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all" />
+              <input placeholder="Company Name" className="glass-card text-primary-foreground rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all" />
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
-              <input required type="tel" placeholder="Phone" className="bg-navy-card border border-steel/20 text-primary-foreground rounded-sm px-4 py-3 text-sm focus:border-orange focus:outline-none transition-colors" />
-              <input required type="email" placeholder="Email" className="bg-navy-card border border-steel/20 text-primary-foreground rounded-sm px-4 py-3 text-sm focus:border-orange focus:outline-none transition-colors" />
+              <input required type="tel" placeholder="Phone" className="glass-card text-primary-foreground rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all" />
+              <input required type="email" placeholder="Email" className="glass-card text-primary-foreground rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all" />
             </div>
-            <select className="w-full bg-navy-card border border-steel/20 text-steel rounded-sm px-4 py-3 text-sm focus:border-orange focus:outline-none transition-colors">
+            <select className="w-full glass-card text-steel rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all">
               <option>Select Project Type</option>
               <option>Power Plant</option>
               <option>Civil & Mechanical</option>
@@ -61,10 +63,10 @@ const ContactSection = () => {
               <option>Refractory & Insulation</option>
               <option>Other</option>
             </select>
-            <textarea required rows={4} placeholder="Your Message" className="w-full bg-navy-card border border-steel/20 text-primary-foreground rounded-sm px-4 py-3 text-sm focus:border-orange focus:outline-none transition-colors resize-none" />
+            <textarea required rows={4} placeholder="Your Message" className="w-full glass-card text-primary-foreground rounded-xl px-4 py-3 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all resize-none" />
             <button
               type="submit"
-              className="w-full bg-orange hover:bg-orange-glow text-secondary-foreground font-heading font-semibold py-3 rounded-sm uppercase tracking-wider transition-colors"
+              className="w-full bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold py-3.5 rounded-full uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-orange/20"
             >
               {submitted ? "Inquiry Sent ✓" : "Send Inquiry"}
             </button>
