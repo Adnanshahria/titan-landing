@@ -165,6 +165,24 @@ const ProjectDetail = () => {
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground uppercase mb-5">Project Overview</h2>
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
+              {/* Project Gallery */}
+              <div className="mt-8">
+                <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 1`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "left center" }} />
+                  </div>
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 2`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "right center" }} />
+                  </div>
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 3`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center top" }} />
+                  </div>
+                  <div className="h-44 rounded-2xl overflow-hidden">
+                    <img src={project.image} alt={`${project.name} view 4`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ objectPosition: "center bottom" }} />
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Sidebar */}
