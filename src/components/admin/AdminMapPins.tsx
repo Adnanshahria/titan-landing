@@ -199,7 +199,7 @@ const PinForm = ({ form, onChange }: { form: any; onChange: (v: any) => void }) 
           <option value="" className="bg-navy">No linked project</option>
           {projects.map((p) => (
             <option key={p.slug} value={p.slug} className="bg-navy">{p.name}</option>
-          )))}
+          ))}
         </select>
       </div>
     </div>
