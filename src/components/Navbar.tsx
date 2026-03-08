@@ -108,7 +108,7 @@ const Navbar = () => {
         </div>
 
         <button className="lg:hidden text-primary-foreground ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={16} /> : <Menu size={16} />}
+          {mobileOpen ? <X size={16} /> : <Menu size={16} className="scale-y-150" />}
         </button>
       </div>
 
