@@ -10,6 +10,7 @@ import { useRef, useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { useProjectImages } from "@/hooks/useProjectImages";
 import { useProjectDescription } from "@/hooks/useProjectDescription";
+import { useProjectTranslation } from "@/hooks/useProjectTranslations";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
