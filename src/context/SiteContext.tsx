@@ -32,8 +32,14 @@ export interface SiteContent {
 const defaultContent: SiteContent = {
   heroHeadline: "Bangladesh's Most Trusted Engineering Construction Company",
   heroSubheadline: "30 Years of Excellence in Power, Energy & Industrial Sector",
+  aboutTitle: "About the Company",
+  aboutSubtitle: "Engineering Excellence Since 1995",
   aboutText: "Techno-Tech Engineering Ltd. was established in 1995 as a Mechanical Construction firm by a group of competent and qualified engineers. Since inception, the company has successfully completed sophisticated projects in Gas Pipeline, Storage Tanks, Power Plant, Oil Refinery & Industrial sectors.",
   aboutHighlight: "Certified Boiler License Holder for Industrial Boiler Works — with vast expertise in refractory, insulation, fabrication, installation and welding works.",
+  aboutBullets: [
+    "JVCA partnerships with local & international firms",
+    "Prime contractor for nationwide energy & industry projects",
+  ],
   contactEmail: "info@technotechengineering.com",
   contactPhone: "01711-003072",
   contactAddress: "106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205",
