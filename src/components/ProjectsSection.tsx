@@ -75,7 +75,7 @@ const ProjectsSection = () => {
                 </Link>
                 <p className="text-muted-foreground text-sm mt-2">{p.desc}</p>
                 <div className="flex justify-between items-center mt-4">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">{p.client}</span>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider font-bold">{p.client}</span>
                   <span className="text-xs text-muted-foreground uppercase tracking-wider">{p.year}</span>
                 </div>
               </div>
