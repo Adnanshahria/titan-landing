@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle } from "lucide-react";
 import aboutImg from "@/assets/about-img.jpg";
