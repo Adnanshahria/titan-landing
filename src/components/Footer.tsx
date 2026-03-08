@@ -44,7 +44,7 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="glass-card rounded-xl p-5">
+          <div className="glass-card rounded-lg p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Quick Links
             </h4>
