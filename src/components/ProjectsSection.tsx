@@ -83,9 +83,12 @@ const ProjectsSection = () => {
           ))}
         </div>
         <div className="text-center mt-10">
-          <button className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-orange/20">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-orange/20"
+          >
             View All Projects <ArrowRight size={18} />
-          </button>
+          </Link>
         </div>
       </div>
 

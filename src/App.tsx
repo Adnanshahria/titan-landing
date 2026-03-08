@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SiteProvider } from "@/context/SiteContext";
 import Index from "./pages/Index";
 import ProjectDetail from "./pages/ProjectDetail";
+import Projects from "./pages/Projects";
 import AdminPanel from "./pages/AdminPanel";
 import NotFound from "./pages/NotFound";
 
