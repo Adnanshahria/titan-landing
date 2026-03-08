@@ -104,6 +104,8 @@ const defaultContent: SiteContent = {
     { name: "Income Tax Registered", detail: "TIN: 580489426429", authority: "National Board of Revenue, Bangladesh" },
     { name: "Final Acceptance Certificate", detail: "BPDB Approved Contractor", authority: "Bangladesh Power Development Board" },
   ],
+  testimonialsTitle: "What Our Clients Say",
+  testimonialsSubtitle: "Trusted partnerships built on decades of engineering excellence",
   testimonials: [
     { quote: "Techno-Tech delivered our 100MW power plant project on time with exceptional quality.", name: "Md. Rafiqul Islam", title: "Chief Engineer", org: "BPDB", projectSlug: "dohazari-100mw-power-plant" },
     { quote: "We've partnered with Techno-Tech on multiple cement mill overhaul projects.", name: "Kamal Uddin Ahmed", title: "Plant Manager", org: "Chhatak Cement", projectSlug: "chhatak-cement-mill-repair" },

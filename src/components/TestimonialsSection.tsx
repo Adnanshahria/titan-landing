@@ -36,10 +36,10 @@ const TestimonialsSection = () => {
       <div ref={ref} className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-6">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase heading-accent">
-            What Our Clients Say
+            {content.testimonialsTitle}
           </h2>
           <p className="mt-3 text-steel max-w-2xl mx-auto text-sm">
-            Trusted partnerships built on decades of engineering excellence
+            {content.testimonialsSubtitle}
           </p>
         </div>
 
