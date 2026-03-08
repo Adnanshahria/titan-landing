@@ -349,7 +349,10 @@ const AdminPanel = () => {
           )}
 
           {tab === "images" && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm">Projects Section</h3>
+              <Field label="Section Title" value={form.projectsTitle} onChange={(v) => setForm({ ...form, projectsTitle: v })} />
+              <Field label="Section Subtitle" value={form.projectsSubtitle} onChange={(v) => setForm({ ...form, projectsSubtitle: v })} textarea />
               <AdminProjectImages />
             </motion.div>
           )}
