@@ -1,12 +1,12 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, MapPin, Calendar, Clock, Building2, ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import { useRef, useEffect, useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { useProjectImages } from "@/hooks/useProjectImages";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
