@@ -211,7 +211,7 @@ const ProjectDetail = () => {
               {t("projectDetail.locationDesc")}
             </p>
           </div>
-          <InteractiveProjectMap highlightSlug={slug} />
+          <InteractiveProjectMap highlightSlug={slug} permanentTooltip />
         </div>
       </section>
 
