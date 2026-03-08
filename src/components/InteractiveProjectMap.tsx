@@ -31,6 +31,7 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
   const [hoveredPin, setHoveredPin] = useState<MapPinType | null>(null);
   const [tappedPin, setTappedPin] = useState<MapPinType | null>(null);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const activeTooltipPin = tappedPin || hoveredPin;
 
