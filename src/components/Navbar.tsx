@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
 import logoImg from "@/assets/logo.png";
@@ -9,6 +10,9 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const showBg = scrolled || !isHome;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -48,13 +52,13 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-2 left-3 right-3 z-50 transition-all duration-500 rounded-2xl ${
-        scrolled
+        showBg
           ? "bg-navy/95 backdrop-blur-md shadow-2xl shadow-black/20 py-2"
           : "bg-transparent py-5"
       }`}
     >
       {/* Gradient bottom border on scroll */}
-      {scrolled && (
+      {showBg && (
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-orange to-transparent opacity-40" />
       )}
 
