@@ -46,6 +46,10 @@ const Navbar = () => {
 
   const scrollTo = (id: string) => {
     setMobileOpen(false);
+    if (!isHome) {
+      navigate("/#" + id.toLowerCase());
+      return;
+    }
     const el = document.getElementById(id.toLowerCase());
     el?.scrollIntoView({ behavior: "smooth" });
   };
