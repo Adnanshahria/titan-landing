@@ -274,7 +274,7 @@ const SuggestedProjects = ({ suggestions, currentCategory }: { suggestions: type
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="font-heading text-sm font-semibold text-primary-foreground uppercase leading-tight group-hover:text-orange transition-colors line-clamp-2">
+                  <h3 className="font-logo text-base text-orange uppercase leading-tight group-hover:text-orange-glow transition-colors line-clamp-2">
                     {p.name}
                   </h3>
                   <p className="text-steel text-xs mt-2 line-clamp-2">{p.desc}</p>
