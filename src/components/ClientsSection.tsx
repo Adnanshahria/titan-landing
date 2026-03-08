@@ -20,7 +20,7 @@ const clients = [
 ];
 
 const ShimmerPlaceholder = () => (
-  <div className="w-14 h-14 rounded-lg bg-steel/10 relative overflow-hidden">
+  <div className="w-14 h-14 rounded-full bg-steel/10 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-steel/20 to-transparent animate-[shimmer_2s_ease-in-out_infinite]" />
   </div>
 );
