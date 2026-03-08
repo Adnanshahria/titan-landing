@@ -5,6 +5,7 @@ export type Lang = "en" | "bn";
 const translations = {
   // Navbar
   "nav.home": { en: "Home", bn: "হোম" },
+  "nav.about": { en: "About", bn: "সম্পর্কে" },
   "nav.services": { en: "Services", bn: "সেবাসমূহ" },
   "nav.projects": { en: "Projects", bn: "প্রকল্পসমূহ" },
   "nav.clients": { en: "Clients", bn: "ক্লায়েন্ট" },
@@ -20,6 +21,10 @@ const translations = {
   "hero.downloadProfile": { en: "Download Company Profile", bn: "কোম্পানি প্রোফাইল ডাউনলোড" },
 
   // Stats
+  "stats.yearsExperience": { en: "Years Experience", bn: "বছরের অভিজ্ঞতা" },
+  "stats.projectsCompleted": { en: "Projects Completed", bn: "সম্পন্ন প্রকল্প" },
+  "stats.governmentClients": { en: "Government Clients", bn: "সরকারি ক্লায়েন্ট" },
+  "stats.established": { en: "Established", bn: "প্রতিষ্ঠিত" },
   "stats.projects": { en: "Projects", bn: "প্রকল্প" },
   "stats.years": { en: "Years", bn: "বছর" },
   "stats.clients": { en: "Clients", bn: "ক্লায়েন্ট" },
@@ -33,12 +38,14 @@ const translations = {
 
   // Projects
   "projects.title": { en: "Our Projects", bn: "আমাদের প্রকল্পসমূহ" },
+  "projects.subtitle": { en: "Explore our complete portfolio of industrial and infrastructure projects across Bangladesh.", bn: "বাংলাদেশ জুড়ে আমাদের শিল্প ও অবকাঠামো প্রকল্পের সম্পূর্ণ পোর্টফোলিও দেখুন।" },
   "projects.viewAll": { en: "View All Projects", bn: "সব প্রকল্প দেখুন" },
   "projects.locations": { en: "Project Locations", bn: "প্রকল্পের অবস্থান" },
   "projects.locationsDesc": { en: "Hover over the pins to explore our projects across Bangladesh", bn: "বাংলাদেশ জুড়ে আমাদের প্রকল্পগুলো দেখতে পিনের উপর হোভার করুন" },
   "projects.viewDetails": { en: "View Details", bn: "বিস্তারিত দেখুন" },
   "projects.across": { en: "Projects across Bangladesh", bn: "বাংলাদেশ জুড়ে প্রকল্প" },
   "projects.all": { en: "All", bn: "সব" },
+  "projects.noProjects": { en: "No projects found in this category.", bn: "এই ক্যাটাগরিতে কোনো প্রকল্প পাওয়া যায়নি।" },
 
   // Project Detail
   "projectDetail.overview": { en: "Overview", bn: "সারসংক্ষেপ" },
@@ -56,6 +63,7 @@ const translations = {
   "projectDetail.duration": { en: "Duration", bn: "সময়কাল" },
   "projectDetail.notFound": { en: "Project Not Found", bn: "প্রকল্প পাওয়া যায়নি" },
   "projectDetail.backHome": { en: "← Back to Home", bn: "← হোমে ফিরুন" },
+  "projectDetail.viewProject": { en: "View Project →", bn: "প্রকল্প দেখুন →" },
 
   // Clients
   "clients.title": { en: "Our Clients", bn: "আমাদের ক্লায়েন্ট" },
@@ -92,9 +100,17 @@ const translations = {
   "footer.services": { en: "Services", bn: "সেবাসমূহ" },
   "footer.contact": { en: "Contact", bn: "যোগাযোগ" },
   "footer.officeHours": { en: "Office Hours", bn: "অফিস সময়" },
+  "footer.quickLinks": { en: "Quick Links & Services", bn: "দ্রুত লিংক ও সেবা" },
+  "footer.fax": { en: "Fax", bn: "ফ্যাক্স" },
 
   // Map
   "map.title": { en: "Our Location", bn: "আমাদের অবস্থান" },
+
+  // Chatbot
+  "chatbot.title": { en: "Techno-Tech AI", bn: "টেকনো-টেক এআই" },
+  "chatbot.subtitle": { en: "Engineering Assistant", bn: "ইঞ্জিনিয়ারিং সহকারী" },
+  "chatbot.placeholder": { en: "Ask about our services...", bn: "আমাদের সেবা সম্পর্কে জিজ্ঞাসা করুন..." },
+  "chatbot.greeting": { en: "Hello! I'm the Techno-Tech AI assistant. How can I help you learn about our engineering services, projects, or certifications?", bn: "হ্যালো! আমি টেকনো-টেক এআই সহকারী। আমাদের ইঞ্জিনিয়ারিং সেবা, প্রকল্প বা সার্টিফিকেশন সম্পর্কে কীভাবে সাহায্য করতে পারি?" },
 
   // Admin Panel
   "admin.title": { en: "Admin Panel", bn: "অ্যাডমিন প্যানেল" },
@@ -116,6 +132,55 @@ const translations = {
   "admin.login": { en: "Admin Login", bn: "অ্যাডমিন লগইন" },
   "admin.password": { en: "Password", bn: "পাসওয়ার্ড" },
   "admin.enter": { en: "Enter", bn: "প্রবেশ" },
+  "admin.incorrectPassword": { en: "Incorrect password", bn: "ভুল পাসওয়ার্ড" },
+  "admin.adminAccess": { en: "Admin Access", bn: "অ্যাডমিন অ্যাক্সেস" },
+  "admin.enterPassword": { en: "Enter password", bn: "পাসওয়ার্ড দিন" },
+  "admin.heroHeadline": { en: "Hero Headline", bn: "হিরো শিরোনাম" },
+  "admin.heroSubheadline": { en: "Hero Subheadline", bn: "হিরো উপশিরোনাম" },
+  "admin.aboutSection": { en: "About Section", bn: "সম্পর্কে বিভাগ" },
+  "admin.aboutTitle": { en: "About Title", bn: "সম্পর্কে শিরোনাম" },
+  "admin.aboutSubtitle": { en: "About Subtitle", bn: "সম্পর্কে উপশিরোনাম" },
+  "admin.aboutText": { en: "About Text", bn: "সম্পর্কে টেক্সট" },
+  "admin.aboutHighlight": { en: "About Highlight", bn: "সম্পর্কে হাইলাইট" },
+  "admin.aboutBullets": { en: "About Bullet Points", bn: "সম্পর্কে বুলেট পয়েন্ট" },
+  "admin.heroStats": { en: "Hero Stats", bn: "হিরো পরিসংখ্যান" },
+  "admin.contactMap": { en: "Contact & Map", bn: "যোগাযোগ ও ম্যাপ" },
+  "admin.contactSectionTitle": { en: "Contact Section Title", bn: "যোগাযোগ বিভাগ শিরোনাম" },
+  "admin.mapSectionTitle": { en: "Map Section Title", bn: "ম্যাপ বিভাগ শিরোনাম" },
+  "admin.mapEmbedUrl": { en: "Map Embed URL", bn: "ম্যাপ এম্বেড URL" },
+  "admin.contactEmail": { en: "Contact Email", bn: "যোগাযোগ ইমেইল" },
+  "admin.contactPhone": { en: "Contact Phone", bn: "যোগাযোগ ফোন" },
+  "admin.contactPhone2": { en: "Contact Phone 2", bn: "যোগাযোগ ফোন ২" },
+  "admin.fax": { en: "Fax", bn: "ফ্যাক্স" },
+  "admin.contactAddress": { en: "Contact Address", bn: "যোগাযোগ ঠিকানা" },
+  "admin.officeHours": { en: "Office Hours", bn: "অফিস সময়" },
+  "admin.sectionTitle": { en: "Section Title", bn: "বিভাগ শিরোনাম" },
+  "admin.sectionSubtitle": { en: "Section Subtitle", bn: "বিভাগ উপশিরোনাম" },
+  "admin.serviceTitle": { en: "Service Title", bn: "সেবা শিরোনাম" },
+  "admin.description": { en: "Description", bn: "বিবরণ" },
+  "admin.name": { en: "Name", bn: "নাম" },
+  "admin.detail": { en: "Detail", bn: "বিস্তারিত" },
+  "admin.authority": { en: "Authority", bn: "কর্তৃপক্ষ" },
+  "admin.quote": { en: "Quote", bn: "উক্তি" },
+  "admin.title2": { en: "Title", bn: "পদবি" },
+  "admin.organization": { en: "Organization", bn: "প্রতিষ্ঠান" },
+  "admin.linkedProject": { en: "Linked Project", bn: "সংযুক্ত প্রকল্প" },
+  "admin.noLinkedProject": { en: "No linked project", bn: "কোনো সংযুক্ত প্রকল্প নেই" },
+  "admin.companyName": { en: "Company Name", bn: "কোম্পানির নাম" },
+  "admin.tagline": { en: "Tagline", bn: "ট্যাগলাইন" },
+  "admin.copyrightText": { en: "Copyright Text", bn: "কপিরাইট টেক্সট" },
+  "admin.serviceLinks": { en: "Service Links", bn: "সেবা লিংক" },
+  "admin.apiKeys": { en: "API Keys", bn: "এপিআই কী" },
+  "admin.apiKeysWarning": { en: "⚠️ Keys are stored in localStorage. For production, move to server-side secrets.", bn: "⚠️ কীগুলো localStorage-এ সংরক্ষিত। প্রোডাকশনে সার্ভার-সাইড সিক্রেটে স্থানান্তর করুন।" },
+  "admin.systemPrompt": { en: "System Prompt", bn: "সিস্টেম প্রম্পট" },
+  "admin.aiSystemPrompt": { en: "AI System Prompt", bn: "এআই সিস্টেম প্রম্পট" },
+  "admin.keyPoints": { en: "Key Points", bn: "মূল পয়েন্ট" },
+  "admin.yearsCount": { en: "Years Count", bn: "বছরের সংখ্যা" },
+  "admin.yearsLabel": { en: "Years Label", bn: "বছরের লেবেল" },
+  "admin.value": { en: "Value", bn: "মান" },
+  "admin.suffix": { en: "Suffix", bn: "প্রত্যয়" },
+  "admin.label": { en: "Label", bn: "লেবেল" },
+  "admin.projectsSection": { en: "Projects Section", bn: "প্রকল্প বিভাগ" },
 
   // Common
   "common.bangladesh": { en: "Bangladesh", bn: "বাংলাদেশ" },
@@ -127,6 +192,23 @@ const translations = {
   "common.cancel": { en: "Cancel", bn: "বাতিল" },
   "common.edit": { en: "Edit", bn: "সম্পাদনা" },
   "common.delete": { en: "Delete", bn: "মুছুন" },
+  "common.addBulletPoint": { en: "+ Add Bullet Point", bn: "+ বুলেট পয়েন্ট যোগ করুন" },
+  "common.addClient": { en: "+ Add Client", bn: "+ ক্লায়েন্ট যোগ করুন" },
+  "common.addCertification": { en: "+ Add Certification", bn: "+ সার্টিফিকেশন যোগ করুন" },
+  "common.removeCertification": { en: "Remove certification", bn: "সার্টিফিকেশন মুছুন" },
+  "common.addTestimonial": { en: "+ Add Testimonial", bn: "+ প্রশংসাপত্র যোগ করুন" },
+  "common.removeTestimonial": { en: "Remove testimonial", bn: "প্রশংসাপত্র মুছুন" },
+  "common.addServiceLink": { en: "+ Add Service Link", bn: "+ সেবা লিংক যোগ করুন" },
+  "common.addPoint": { en: "+ Add Point", bn: "+ পয়েন্ট যোগ করুন" },
+
+  // Categories
+  "category.all": { en: "All", bn: "সব" },
+  "category.powerSector": { en: "Power Sector", bn: "বিদ্যুৎ খাত" },
+  "category.cement": { en: "Cement", bn: "সিমেন্ট" },
+  "category.fertilizer": { en: "Fertilizer", bn: "সার" },
+  "category.refinery": { en: "Refinery", bn: "শোধনাগার" },
+  "category.sports": { en: "Sports", bn: "খেলাধুলা" },
+  "category.water": { en: "Water", bn: "পানি" },
 } as const;
 
 type TranslationKey = keyof typeof translations;
