@@ -12,7 +12,7 @@ export interface SiteContent {
   projects: Project[];
   services: { title: string; desc: string }[];
   clients: string[];
-  testimonials: { quote: string; name: string; title: string; org: string }[];
+  testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
