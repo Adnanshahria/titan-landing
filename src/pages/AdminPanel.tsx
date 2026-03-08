@@ -316,6 +316,40 @@ const AdminPanel = () => {
             </motion.div>
           )}
 
+          {tab === "footer" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <Field label="Company Name" value={form.footerCompanyName} onChange={(v) => setForm({ ...form, footerCompanyName: v })} />
+              <Field label="Tagline" value={form.footerTagline} onChange={(v) => setForm({ ...form, footerTagline: v })} />
+              <Field label="Copyright Text" value={form.footerCopyright} onChange={(v) => setForm({ ...form, footerCopyright: v })} />
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm pt-2">Service Links</h3>
+              {form.footerServiceLinks.map((s, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <input
+                    value={s}
+                    onChange={(e) => {
+                      const next = [...form.footerServiceLinks];
+                      next[i] = e.target.value;
+                      setForm({ ...form, footerServiceLinks: next });
+                    }}
+                    className="flex-1 glass-card text-primary-foreground rounded-xl px-4 py-2.5 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all"
+                  />
+                  <button
+                    onClick={() => setForm({ ...form, footerServiceLinks: form.footerServiceLinks.filter((_, j) => j !== i) })}
+                    className="text-steel hover:text-destructive text-xs transition-colors"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => setForm({ ...form, footerServiceLinks: [...form.footerServiceLinks, "New Link"] })}
+                className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
+              >
+                + Add Service Link
+              </button>
+            </motion.div>
+          )}
+
           {tab === "leads" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <AdminLeads />
