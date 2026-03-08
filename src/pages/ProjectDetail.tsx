@@ -131,21 +131,6 @@ const ProjectDetail = () => {
               <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground uppercase mb-5">Project Overview</h2>
               <p className="text-muted-foreground leading-relaxed">{project.details}</p>
 
-              {/* Gallery */}
-              <div className="mt-8">
-                <h3 className="font-heading text-xl font-bold text-foreground uppercase mb-4">Project Gallery</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="col-span-2 h-60 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={project.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="h-40 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" style={{ objectPosition: "left center" }} />
-                  </div>
-                  <div className="h-40 rounded-2xl overflow-hidden">
-                    <img src={project.image} alt={`${project.name} detail`} className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" style={{ objectPosition: "right center" }} />
-                  </div>
-                </div>
-              </div>
 
               {/* Prev/Next navigation */}
               <div className="mt-10 grid grid-cols-2 gap-4">
