@@ -47,7 +47,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-2 left-3 right-3 z-50 transition-all duration-500 rounded-2xl ${
         scrolled
           ? "bg-navy/95 backdrop-blur-md shadow-2xl shadow-black/20 py-2"
           : "bg-transparent py-5"
@@ -108,7 +108,7 @@ const Navbar = () => {
         </div>
 
         <button className="lg:hidden text-primary-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
