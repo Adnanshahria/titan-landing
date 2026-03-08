@@ -130,7 +130,6 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
               );
             })()}
           </AnimatePresence>
-          </AnimatePresence>
         </div>
 
         <div className="flex items-center justify-between mt-4">
