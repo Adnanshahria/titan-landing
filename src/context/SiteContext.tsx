@@ -13,6 +13,8 @@ export interface SiteContent {
   contactPhone: string;
   contactAddress: string;
   projects: Project[];
+  servicesTitle: string;
+  servicesSubtitle: string;
   services: { title: string; desc: string }[];
   clients: string[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
