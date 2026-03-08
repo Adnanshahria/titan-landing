@@ -6,6 +6,7 @@ import { projects } from "@/data/projects";
 import PhotoLightbox from "./PhotoLightbox";
 import { useSiteContent } from "@/context/SiteContext";
 import InteractiveProjectMap from "./InteractiveProjectMap";
+import { useLanguage } from "@/context/LanguageContext";
 
 const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "Sports", "Water"];
 
