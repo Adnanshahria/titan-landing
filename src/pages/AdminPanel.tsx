@@ -13,7 +13,7 @@ import AdminLeads from "@/components/admin/AdminLeads";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "whychooseus" | "leads" | "chatbot" | "images" | "descriptions";
+type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "leads" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -38,6 +38,7 @@ const AdminPanel = () => {
     { id: "general", label: "General", icon: Home },
     { id: "services", label: "Services", icon: FileText },
     { id: "clients", label: "Clients", icon: Users },
+    { id: "certifications", label: "Certifications", icon: Settings },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "whychooseus", label: "Why Choose Us", icon: Settings },
     { id: "leads", label: "Leads", icon: Inbox },
@@ -212,6 +213,44 @@ const AdminPanel = () => {
                 className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
               >
                 + Add Client
+              </button>
+            </motion.div>
+          )}
+
+          {tab === "certifications" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <Field label="Section Title" value={form.certificationsTitle} onChange={(v) => setForm({ ...form, certificationsTitle: v })} />
+              <Field label="Section Subtitle" value={form.certificationsSubtitle} onChange={(v) => setForm({ ...form, certificationsSubtitle: v })} />
+              {form.certifications.map((c, i) => (
+                <div key={i} className="glass-card rounded-xl p-5 gradient-border space-y-3">
+                  <Field label="Name" value={c.name} onChange={(v) => {
+                    const next = [...form.certifications];
+                    next[i] = { ...next[i], name: v };
+                    setForm({ ...form, certifications: next });
+                  }} />
+                  <Field label="Detail" value={c.detail} onChange={(v) => {
+                    const next = [...form.certifications];
+                    next[i] = { ...next[i], detail: v };
+                    setForm({ ...form, certifications: next });
+                  }} />
+                  <Field label="Authority" value={c.authority} onChange={(v) => {
+                    const next = [...form.certifications];
+                    next[i] = { ...next[i], authority: v };
+                    setForm({ ...form, certifications: next });
+                  }} />
+                  <button
+                    onClick={() => setForm({ ...form, certifications: form.certifications.filter((_, j) => j !== i) })}
+                    className="text-destructive text-xs hover:underline"
+                  >
+                    Remove certification
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => setForm({ ...form, certifications: [...form.certifications, { name: "", detail: "", authority: "" }] })}
+                className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
+              >
+                + Add Certification
               </button>
             </motion.div>
           )}

@@ -20,6 +20,9 @@ export interface SiteContent {
   servicesSubtitle: string;
   services: { title: string; desc: string }[];
   clients: string[];
+  certificationsTitle: string;
+  certificationsSubtitle: string;
+  certifications: { name: string; detail: string; authority: string }[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   heroStats: { value: number; suffix: string; label: string }[];
   whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
@@ -82,6 +85,14 @@ const defaultContent: SiteContent = {
     "Chhatak Cement Company Ltd.",
     "SB Agro Chemical Industries",
     "Carew & Co. (BD) Ltd.",
+  ],
+  certificationsTitle: "Certifications & Credentials",
+  certificationsSubtitle: "Legally registered, certified and government approved",
+  certifications: [
+    { name: "Certificate of Incorporation", detail: "No. C-111369/13 | 2013", authority: "Registrar of Joint Stock Companies, Bangladesh" },
+    { name: "Boiler License", detail: "Industrial Boiler Works License", authority: "Government of Bangladesh" },
+    { name: "Income Tax Registered", detail: "TIN: 580489426429", authority: "National Board of Revenue, Bangladesh" },
+    { name: "Final Acceptance Certificate", detail: "BPDB Approved Contractor", authority: "Bangladesh Power Development Board" },
   ],
   testimonials: [
     { quote: "Techno-Tech delivered our 100MW power plant project on time with exceptional quality.", name: "Md. Rafiqul Islam", title: "Chief Engineer", org: "BPDB", projectSlug: "dohazari-100mw-power-plant" },
