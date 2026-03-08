@@ -14,16 +14,21 @@ const geoToSvg = (lat: number, lng: number) => {
   return { x, y };
 };
 
-interface Props { highlightSlug?: string; filterCategory?: string; }
+interface Props { highlightSlug?: string; filterCategory?: string; permanentTooltip?: boolean; }
 
-const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
+const InteractiveProjectMap = ({ highlightSlug, filterCategory, permanentTooltip }: Props) => {
   const { data: pins = [] } = useMapPins();
   const [hoveredPin, setHoveredPin] = useState<MapPinType | null>(null);
   const [tappedPin, setTappedPin] = useState<MapPinType | null>(null);
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const activeTooltipPin = tappedPin || hoveredPin;
+  // If permanentTooltip is set, always show the highlighted pin's tooltip
+  const permanentPin = permanentTooltip && highlightSlug
+    ? pins.find((p) => p.project_slug === highlightSlug) || null
+    : null;
+
+  const activeTooltipPin = permanentPin || tappedPin || hoveredPin;
 
   const handlePinTap = useCallback((pin: MapPinType, e: React.MouseEvent | React.TouchEvent) => {
     if ("ontouchstart" in window) {
