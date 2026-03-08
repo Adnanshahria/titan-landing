@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         heading: ['Barlow Condensed', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
+        logo: ['Abril Fatface', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
