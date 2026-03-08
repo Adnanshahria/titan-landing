@@ -14,6 +14,9 @@ export interface SiteContent {
   clients: string[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
+  contactFax: string;
+  contactPhone2: string;
+  contactOfficeHours: string;
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
@@ -30,6 +33,9 @@ const defaultContent: SiteContent = {
   contactEmail: "info@technotechengineering.com",
   contactPhone: "01711-003072",
   contactAddress: "106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205",
+  contactFax: "+880-2-9568037",
+  contactPhone2: "01685-204406",
+  contactOfficeHours: "Sun–Thu, 9AM–6PM",
   projects: defaultProjects,
   services: [
     { title: "Power Plant Works", desc: "Boiler, Turbine, Generator, Furnace & Chimney erection, commissioning and revamping for captive and grid power plants." },
