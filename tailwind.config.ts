@@ -17,6 +17,7 @@ export default {
         heading: ['Barlow Condensed', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
         logo: ['Abril Fatface', 'serif'],
+        display: ['Playfair Display', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
