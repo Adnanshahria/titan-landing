@@ -14,6 +14,7 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
   const { images: dbImages } = useProjectImages(slug);
+  const { description: dbDescription } = useProjectDescription(slug);
   const [imgIndex, setImgIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
