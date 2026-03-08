@@ -7,12 +7,14 @@ import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import { useRef, useEffect, useState } from "react";
 import { useProjectImages } from "@/hooks/useProjectImages";
+import { useProjectDescription } from "@/hooks/useProjectDescription";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
   const { images: dbImages } = useProjectImages(slug);
+  const { description: dbDescription } = useProjectDescription(slug);
   const [imgIndex, setImgIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -166,7 +168,7 @@ const ProjectDetail = () => {
               className="lg:col-span-2"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-foreground uppercase mb-5" style={{ fontFamily: "'Abril Fatface', serif" }}>Overview</h2>
-              <p className="text-muted-foreground leading-relaxed">{project.details}</p>
+              <p className="text-foreground/80 leading-relaxed text-base">{dbDescription || project.details}</p>
 
               {/* Project Gallery */}
               {allImages.length > 1 && (

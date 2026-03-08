@@ -7,10 +7,11 @@ import {
 } from "lucide-react";
 import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
+import AdminProjectDescriptions from "@/components/admin/AdminProjectDescriptions";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images";
+type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -38,6 +39,7 @@ const AdminPanel = () => {
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
+    { id: "descriptions", label: "Descriptions", icon: FileText },
   ];
 
   return (
@@ -226,6 +228,12 @@ const AdminPanel = () => {
           {tab === "images" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <AdminProjectImages />
+            </motion.div>
+          )}
+
+          {tab === "descriptions" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+              <AdminProjectDescriptions />
             </motion.div>
           )}
         </div>
