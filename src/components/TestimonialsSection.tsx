@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Cards */}
-          <div className="relative h-[200px] sm:h-[180px]">
+          <div className="relative overflow-hidden">
             {testimonials.map((t, i) => (
               <motion.div
                 key={i}
@@ -71,22 +71,23 @@ const TestimonialsSection = () => {
                   opacity: i === current ? 1 : 0,
                   scale: i === current ? 1 : 0.95,
                   y: i === current ? 0 : 20,
+                  position: i === current ? "relative" as const : "absolute" as const,
                 }}
                 transition={{ duration: 0.5 }}
-                className={`absolute inset-0 glass-card rounded-2xl p-8 md:p-10 gradient-border ${
-                  i === current ? "pointer-events-auto" : "pointer-events-none"
+                className={`glass-card rounded-2xl p-6 md:p-8 gradient-border ${
+                  i === current ? "relative" : "absolute inset-0 pointer-events-none"
                 }`}
               >
-                <Quote className="text-orange/30 mb-4" size={32} />
-                <p className="text-primary-foreground text-base md:text-lg leading-relaxed italic">
+                <Quote className="text-orange/30 mb-3" size={28} />
+                <p className="text-primary-foreground text-sm md:text-base leading-relaxed italic">
                   "{t.quote}"
                 </p>
-                <div className="mt-6 flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center text-secondary-foreground font-heading font-bold text-sm">
+                <div className="mt-4 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center text-secondary-foreground font-heading font-bold text-xs">
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="text-primary-foreground font-heading font-semibold text-sm uppercase">{t.name}</p>
+                    <p className="text-primary-foreground font-heading font-semibold text-xs uppercase">{t.name}</p>
                     <p className="text-steel text-xs">{t.title}, {t.org}</p>
                   </div>
                 </div>
