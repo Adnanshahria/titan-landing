@@ -10,6 +10,7 @@ import AdminLogin from "@/components/admin/AdminLogin";
 import AdminProjectImages from "@/components/admin/AdminProjectImages";
 import AdminProjectDescriptions from "@/components/admin/AdminProjectDescriptions";
 import AdminLeads from "@/components/admin/AdminLeads";
+import AdminMapPins from "@/components/admin/AdminMapPins";
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
