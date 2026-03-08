@@ -122,16 +122,16 @@ const ProjectDetail = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-6"
           >
-            <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight max-w-4xl">
-              {project.name}
-            </h1>
-            <div className="mt-5 rounded-2xl px-5 py-4 bg-navy/90 backdrop-blur-md border border-steel/15 inline-flex flex-wrap gap-x-6 gap-y-2 shadow-lg">
-              {[
-                { icon: Building2, label: t("projectDetail.client"), value: project.client },
-                { icon: MapPin, label: t("projectDetail.locationLabel"), value: project.location },
-                { icon: Calendar, label: t("projectDetail.year"), value: project.year },
-                { icon: Clock, label: t("projectDetail.duration"), value: project.duration },
-              ].map((item) => (
+             <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight max-w-4xl">
+               {projectName}
+             </h1>
+             <div className="mt-5 rounded-2xl px-5 py-4 bg-navy/90 backdrop-blur-md border border-steel/15 inline-flex flex-wrap gap-x-6 gap-y-2 shadow-lg">
+               {[
+                 { icon: Building2, label: t("projectDetail.client"), value: projectClient },
+                 { icon: MapPin, label: t("projectDetail.locationLabel"), value: projectLocation },
+                 { icon: Calendar, label: t("projectDetail.year"), value: project.year },
+                 { icon: Clock, label: t("projectDetail.duration"), value: project.duration },
+               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-2">
                   <item.icon className="text-orange" size={14} />
                   <span className="text-steel text-xs">{item.label}:</span>
