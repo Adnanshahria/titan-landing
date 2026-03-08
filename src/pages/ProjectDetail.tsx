@@ -209,7 +209,7 @@ const SuggestedProjects = ({ suggestions, currentCategory }: { suggestions: type
   };
 
   return (
-    <section className="py-14 bg-dark-bg noise-overlay relative">
+    <section className="py-14 bg-dark-bg noise-overlay relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="flex items-end justify-between mb-8">
@@ -247,11 +247,11 @@ const SuggestedProjects = ({ suggestions, currentCategory }: { suggestions: type
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="snap-start shrink-0 w-[280px]"
+              className="snap-start shrink-0 w-[280px] relative z-10"
             >
               <Link
                 to={`/project/${p.slug}`}
-                className="group block glass-card rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-500 h-full"
+                className="group block bg-card border border-steel/15 rounded-2xl overflow-hidden hover:-translate-y-1 transition-all duration-500 h-full"
               >
                 {/* Image */}
                 <div className="h-40 overflow-hidden relative">
