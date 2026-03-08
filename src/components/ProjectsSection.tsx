@@ -12,6 +12,7 @@ const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "
 
 const ProjectsSection = () => {
   const { content } = useSiteContent();
+  const { t } = useLanguage();
   const [filter, setFilter] = useState("All");
   const [lightbox, setLightbox] = useState<{ open: boolean; projectIndex: number; imageIndex: number }>({
     open: false, projectIndex: 0, imageIndex: 0,
