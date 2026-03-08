@@ -23,6 +23,8 @@ export interface SiteContent {
   certificationsTitle: string;
   certificationsSubtitle: string;
   certifications: { name: string; detail: string; authority: string }[];
+  testimonialsTitle: string;
+  testimonialsSubtitle: string;
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   heroStats: { value: number; suffix: string; label: string }[];
   whyChooseUs: { title: string; yearsCount: string; yearsLabel: string; points: string[] };
