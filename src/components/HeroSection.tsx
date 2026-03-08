@@ -5,6 +5,13 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { useSiteContent } from "@/context/SiteContext";
 import { useLanguage } from "@/context/LanguageContext";
 
+const statsTranslationMap: Record<string, string> = {
+  "Years Experience": "stats.yearsExperience",
+  "Projects Completed": "stats.projectsCompleted",
+  "Government Clients": "stats.governmentClients",
+  "Established": "stats.established",
+};
+
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
@@ -89,12 +96,16 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
         >
-          {stats.map((s) => (
-            <div key={s.label} className="glass-card rounded-2xl py-3 px-3 flex flex-col items-center">
-              <Counter target={s.value} suffix={s.suffix} />
-              <span className="text-steel text-sm mt-2 uppercase tracking-wider">{s.label}</span>
-            </div>
-          ))}
+          {stats.map((s) => {
+            const translationKey = statsTranslationMap[s.label];
+            const label = translationKey ? t(translationKey as any) : s.label;
+            return (
+              <div key={s.label} className="glass-card rounded-2xl py-3 px-3 flex flex-col items-center">
+                <Counter target={s.value} suffix={s.suffix} />
+                <span className="text-steel text-sm mt-2 uppercase tracking-wider">{label}</span>
+              </div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </section>

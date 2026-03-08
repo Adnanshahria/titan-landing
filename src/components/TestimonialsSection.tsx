@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useSiteContent } from "@/context/SiteContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
@@ -11,6 +12,7 @@ const TestimonialsSection = () => {
   const [autoplay, setAutoplay] = useState(true);
   const navigate = useNavigate();
   const { content } = useSiteContent();
+  const { t: tr } = useLanguage();
 
   const testimonials = content.testimonials;
 
@@ -82,7 +84,7 @@ const TestimonialsSection = () => {
                 </div>
                 {t.projectSlug && (
                   <span className="text-orange text-xs font-heading uppercase tracking-wider">
-                    View Project →
+                    {tr("projectDetail.viewProject")}
                   </span>
                 )}
               </div>
