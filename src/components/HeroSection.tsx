@@ -3,6 +3,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { useSiteContent } from "@/context/SiteContext";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
   const [count, setCount] = useState(0);
@@ -36,6 +37,7 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 
 const HeroSection = () => {
   const { content } = useSiteContent();
+  const { t } = useLanguage();
   const stats = content.heroStats;
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
@@ -54,7 +56,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground uppercase leading-tight max-w-5xl mx-auto"
         >
-          Bangladesh's Most Trusted Engineering Construction Company
+          {t("hero.headline")}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +64,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-6 text-steel text-lg md:text-xl max-w-2xl mx-auto"
         >
-          30 Years of Excellence in Power, Energy & Industrial Sector
+          {t("hero.subheadline")}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,10 +76,10 @@ const HeroSection = () => {
             href="#projects"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-orange/20"
           >
-            View Our Projects <ArrowRight size={18} />
+            {t("hero.viewProjects")} <ArrowRight size={18} />
           </a>
           <button className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-navy font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 backdrop-blur-sm">
-            <Download size={18} /> Download Company Profile
+            <Download size={18} /> {t("hero.downloadProfile")}
           </button>
         </motion.div>
 
