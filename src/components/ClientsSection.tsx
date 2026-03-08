@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useSiteContent } from "@/context/SiteContext";
 
 import bpdbLogo from "@/assets/clients/bpdb.png";
 import bwdbLogo from "@/assets/clients/bwdb.png";
@@ -25,6 +26,7 @@ const ShimmerPlaceholder = () => (
 );
 
 const ClientsSection = () => {
+  const { content } = useSiteContent();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -38,7 +40,7 @@ const ClientsSection = () => {
       `}</style>
       <div ref={ref} className="container mx-auto px-4 relative z-10">
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase text-center mb-14 heading-accent">
-          Trusted by Bangladesh's Leading Organizations
+          {content.clientsTitle}
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {clients.map((c, i) => {

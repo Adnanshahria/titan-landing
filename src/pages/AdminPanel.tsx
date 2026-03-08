@@ -187,6 +187,7 @@ const AdminPanel = () => {
 
           {tab === "clients" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
+              <Field label="Section Title" value={form.clientsTitle} onChange={(v) => setForm({ ...form, clientsTitle: v })} />
               {form.clients.map((c, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <input
