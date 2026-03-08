@@ -11,6 +11,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
   const showBg = scrolled || !isHome;
 
