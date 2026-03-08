@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      leads: {
+        Row: {
+          company_name: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          message: string | null
+          phone: string
+          project_type: string | null
+        }
+        Insert: {
+          company_name?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          message?: string | null
+          phone: string
+          project_type?: string | null
+        }
+        Update: {
+          company_name?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string | null
+          phone?: string
+          project_type?: string | null
+        }
+        Relationships: []
+      }
       project_descriptions: {
         Row: {
           description: string
