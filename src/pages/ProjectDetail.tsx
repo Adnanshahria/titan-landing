@@ -199,6 +199,7 @@ const ProjectDetail = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              className="-mt-2 lg:mt-0"
             >
               <div className="bg-card rounded-2xl p-5 gradient-border shadow-lg sticky top-24">
                 <h3 className="font-heading text-lg font-bold text-foreground uppercase mb-4">Scope of Work</h3>
