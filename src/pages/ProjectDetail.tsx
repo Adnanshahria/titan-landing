@@ -168,7 +168,7 @@ const ProjectDetail = () => {
               className="lg:col-span-2"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-foreground uppercase mb-5" style={{ fontFamily: "'Abril Fatface', serif" }}>Overview</h2>
-              <p className="text-muted-foreground leading-relaxed">{project.details}</p>
+              <p className="text-foreground/80 leading-relaxed text-base">{dbDescription || project.details}</p>
 
               {/* Project Gallery */}
               {allImages.length > 1 && (
