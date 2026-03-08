@@ -1,11 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Phone, Mail, Clock, Printer } from "lucide-react";
+import { useSiteContent } from "@/context/SiteContext";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
+  const { content } = useSiteContent();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,8 +15,16 @@ const ContactSection = () => {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
+  const contactItems = [
+    { icon: MapPin, text: content.contactAddress },
+    { icon: Phone, text: `${content.contactPhone} | ${content.contactPhone2}` },
+    { icon: Printer, text: `Fax: ${content.contactFax}` },
+    { icon: Mail, text: content.contactEmail },
+    { icon: Clock, text: `Office Hours: ${content.contactOfficeHours}` },
+  ];
+
   return (
-    <section id="contact" className="py-20 bg-dark-bg noise-overlay relative">
+    <section id="contact" className="py-20 bg-dark-bg noise-overlay relative rounded-2xl">
       <div ref={ref} className="container mx-auto px-4 relative z-10">
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground uppercase text-center mb-14 heading-accent">Get In Touch</h2>
         <div className="grid lg:grid-cols-2 gap-12">
@@ -24,13 +34,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            {[
-              { icon: MapPin, text: "106/A, Green Road (3rd Floor), Farmgate, Corner Place Super Market, Dhaka-1205" },
-              { icon: Phone, text: "01711-003072 | 01685-204406" },
-              { icon: Printer, text: "Fax: +880-2-9568037" },
-              { icon: Mail, text: "info@technotechengineering.com" },
-              { icon: Clock, text: "Office Hours: Sun–Thu, 9AM–6PM" },
-            ].map((item) => (
+            {contactItems.map((item) => (
               <div key={item.text} className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
                   <item.icon className="text-orange" size={18} />
