@@ -21,7 +21,7 @@ const Footer = () => {
         {/* Top: Logo & tagline */}
         <div className="flex flex-col items-center text-center mb-10">
           <div className="flex items-center gap-3 text-primary-foreground mb-2">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shadow-lg shadow-orange/20">
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shadow-lg shadow-orange/20">
               <ArrowRight className="text-secondary-foreground" size={15} />
             </div>
             <span className="font-heading text-xl font-bold uppercase tracking-wide">Techno-Tech Engineering Ltd.</span>
