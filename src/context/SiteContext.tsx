@@ -12,6 +12,8 @@ export interface SiteContent {
   contactEmail: string;
   contactPhone: string;
   contactAddress: string;
+  projectsTitle: string;
+  projectsSubtitle: string;
   projects: Project[];
   servicesTitle: string;
   servicesSubtitle: string;
@@ -54,6 +56,8 @@ const defaultContent: SiteContent = {
   contactFax: "+880-2-9568037",
   contactPhone2: "01685-204406",
   contactOfficeHours: "Sun–Thu, 9AM–6PM",
+  projectsTitle: "Major Reference Projects",
+  projectsSubtitle: "Trusted by Bangladesh's largest public and private sector organizations",
   projects: defaultProjects,
   servicesTitle: "Our Core Services",
   servicesSubtitle: "End-to-end engineering solutions across Bangladesh's energy and industrial sectors",
