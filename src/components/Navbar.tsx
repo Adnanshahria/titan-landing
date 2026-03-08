@@ -61,9 +61,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-4">
         {/* Logo */}
         <a href="#home" onClick={() => scrollTo("home")} className="flex items-center gap-3 text-primary-foreground group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center">
-            <ArrowRight className="text-secondary-foreground" size={16} />
-          </div>
+          <img src={logoImg} alt="Techno-Tech Engineering Logo" className="w-10 h-10 object-contain" />
           <div className="h-6 w-[1px] bg-orange/40" />
           <span className="font-logo text-base sm:text-lg tracking-wider">
             Techno-Tech Engineering
