@@ -127,7 +127,9 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
                 </div>
                 <div className="w-3 h-3 bg-card border-r border-b border-steel/20 rotate-45 mx-auto -mt-1.5" />
               </motion.div>
-            )}
+              );
+            })()}
+          </AnimatePresence>
           </AnimatePresence>
         </div>
 
