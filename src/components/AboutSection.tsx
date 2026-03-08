@@ -40,7 +40,7 @@ const AboutSection = () => {
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Techno-Tech Engineering Ltd. was established in 1995 as a Mechanical Construction firm by a group of competent and qualified engineers. Since inception, the company has successfully completed sophisticated projects in Gas Pipeline, Storage Tanks, Power Plant, Oil Refinery & Industrial sectors.
             </p>
-            <div className="mt-6 border-l-4 border-orange bg-card rounded-r-xl p-4 shadow-sm">
+            <div className="mt-6 border-l-4 border-purple-accent bg-card rounded-r-xl p-4 shadow-sm">
               <p className="text-foreground font-medium text-sm leading-relaxed">
                 Certified Boiler License Holder for Industrial Boiler Works — with vast expertise in refractory, insulation, fabrication, installation and welding works.
               </p>
