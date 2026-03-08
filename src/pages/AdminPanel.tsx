@@ -94,7 +94,7 @@ const AdminPanel = () => {
             onClick={save}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground font-heading font-semibold px-5 py-2 rounded-full text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-orange/20 transition-all"
           >
-            <Save size={14} /> Save Changes
+            <Save size={14} /> {t("admin.saveChanges")}
           </button>
         </div>
 
