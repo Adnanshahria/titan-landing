@@ -68,12 +68,6 @@ const ProjectsSection = () => {
                 <span className="absolute top-3 left-3 bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-3 py-1 rounded-full uppercase">
                   {p.category}
                 </span>
-                <button
-                  onClick={(e) => { e.preventDefault(); openLightbox(i); }}
-                  className="absolute bottom-3 right-3 w-9 h-9 rounded-xl bg-navy/60 backdrop-blur-sm border border-steel/20 flex items-center justify-center text-steel hover:text-orange hover:border-orange/30 transition-all opacity-0 group-hover:opacity-100"
-                >
-                  <Images size={16} />
-                </button>
               </div>
               <div className="p-5">
                 <h3 className="font-heading text-lg font-semibold text-foreground uppercase">{p.name}</h3>
