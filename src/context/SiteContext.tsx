@@ -12,6 +12,8 @@ export interface SiteContent {
   contactEmail: string;
   contactPhone: string;
   contactAddress: string;
+  projectsTitle: string;
+  projectsSubtitle: string;
   projects: Project[];
   servicesTitle: string;
   servicesSubtitle: string;
