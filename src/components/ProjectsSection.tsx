@@ -9,6 +9,7 @@ import { useSiteContent } from "@/context/SiteContext";
 const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "Sports", "Water"];
 
 const ProjectsSection = () => {
+  const { content } = useSiteContent();
   const [filter, setFilter] = useState("All");
   const [lightbox, setLightbox] = useState<{ open: boolean; projectIndex: number; imageIndex: number }>({
     open: false, projectIndex: 0, imageIndex: 0,
