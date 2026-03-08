@@ -21,20 +21,20 @@ const AboutSection = () => {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="relative"
-          >
+            className="relative">
+            
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-orange/10 border-2 border-orange/20">
               <img src={aboutImg} alt="Engineers at industrial construction site" className="w-full h-[400px] object-cover" loading="lazy" />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl bg-gradient-to-br from-orange to-orange-glow opacity-20 -z-10" />
+            
           </motion.div>
 
           <motion.div
             style={{ y: textY }}
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
+            transition={{ duration: 0.7, delay: 0.2 }}>
+            
             <span className="text-orange font-heading font-semibold uppercase tracking-widest text-sm">{content.aboutTitle}</span>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mt-3 uppercase">
               {content.aboutSubtitle}
@@ -48,17 +48,17 @@ const AboutSection = () => {
               </p>
             </div>
             <div className="mt-6 space-y-3">
-              {content.aboutBullets.map((t) => (
-                <div key={t} className="flex items-start gap-3">
+              {content.aboutBullets.map((t) =>
+              <div key={t} className="flex items-start gap-3">
                   <CheckCircle className="text-orange mt-0.5 shrink-0" size={20} />
                   <span className="text-foreground text-sm">{t}</span>
                 </div>
-              ))}
+              )}
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 export default AboutSection;
