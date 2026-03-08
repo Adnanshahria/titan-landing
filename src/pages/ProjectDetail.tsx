@@ -134,18 +134,21 @@ const ProjectDetail = () => {
             </h1>
 
             {/* Info card */}
-            <div className="mt-5 glass-card rounded-2xl px-5 py-4 border border-steel/15 backdrop-blur-md inline-flex flex-wrap gap-x-6 gap-y-2">
+            <div className="mt-5 bg-card/80 backdrop-blur-md rounded-2xl px-6 py-5 border border-steel/15 shadow-lg grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { icon: Building2, label: "Client", value: project.client },
                 { icon: MapPin, label: "Location", value: project.location },
                 { icon: Calendar, label: "Year", value: project.year },
                 { icon: Clock, label: "Duration", value: project.duration },
-              ].map((item, i, arr) => (
-                <div key={item.label} className="flex items-center gap-2">
-                  <item.icon className="text-orange" size={14} />
-                  <span className="text-muted-foreground text-xs">{item.label}:</span>
-                  <span className="text-foreground text-xs font-semibold">{item.value}</span>
-                  {i < arr.length - 1 && <span className="text-steel/20 ml-4">|</span>}
+              ].map((item) => (
+                <div key={item.label} className="flex items-start gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-orange/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <item.icon className="text-orange" size={15} />
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground text-[10px] uppercase tracking-wider font-heading">{item.label}</p>
+                    <p className="text-foreground text-sm font-semibold mt-0.5 leading-tight">{item.value}</p>
+                  </div>
                 </div>
               ))}
             </div>
