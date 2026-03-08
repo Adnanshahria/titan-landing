@@ -59,6 +59,7 @@ const defaultContent: SiteContent = {
   contactOfficeHours: "Sun–Thu, 9AM–6PM",
   projectsTitle: "Major Reference Projects",
   projectsSubtitle: "Trusted by Bangladesh's largest public and private sector organizations",
+  clientsTitle: "Trusted by Bangladesh's Leading Organizations",
   projects: defaultProjects,
   servicesTitle: "Our Core Services",
   servicesSubtitle: "End-to-end engineering solutions across Bangladesh's energy and industrial sectors",
