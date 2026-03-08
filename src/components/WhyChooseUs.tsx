@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const { content } = useSiteContent();
-  const { yearsCount, yearsLabel, points } = content.whyChooseUs;
+  const { title, yearsCount, yearsLabel, points } = content.whyChooseUs;
 
   return (
     <section className="py-6">
