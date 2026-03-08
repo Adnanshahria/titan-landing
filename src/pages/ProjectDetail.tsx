@@ -45,54 +45,59 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative h-[55vh] min-h-[380px] overflow-hidden">
-        <motion.img
-          key={slug}
-          initial={{ scale: 1.05, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          src={project.image}
-          alt={project.name}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/60 to-navy/20" />
-        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-end pb-10">
-          <motion.div key={slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="flex items-center gap-3 mb-3">
+      {/* Hero - Gallery style */}
+      <section className="pt-28 pb-10 bg-steel-light">
+        <div className="container mx-auto px-4">
+          {/* Main image card */}
+          <motion.div
+            key={slug}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="rounded-3xl overflow-hidden shadow-2xl relative max-h-[480px]"
+          >
+            <img
+              src={project.image}
+              alt={project.name}
+              className="w-full h-[480px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+          </motion.div>
+
+          {/* Project info below gallery */}
+          <motion.div
+            key={slug + "-info"}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mt-6"
+          >
+            <div className="flex flex-wrap items-center gap-3 mb-3">
               <span className="inline-block bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground text-xs font-heading font-semibold px-4 py-1.5 rounded-full uppercase">
                 {project.category}
               </span>
-              <span className="text-steel text-xs uppercase tracking-wider">{project.year}</span>
+              <span className="text-muted-foreground text-xs uppercase tracking-wider">{project.year}</span>
             </div>
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground uppercase leading-tight max-w-4xl">
+            <h1 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight max-w-4xl">
               {project.name}
             </h1>
-          </motion.div>
-        </div>
-      </section>
 
-      {/* Info bar */}
-      <section className="bg-navy-card border-y border-steel/10">
-        <div className="container mx-auto px-4 py-5">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {[
-              { icon: Building2, label: "Client", value: project.client },
-              { icon: MapPin, label: "Location", value: project.location },
-              { icon: Calendar, label: "Year", value: project.year },
-              { icon: Clock, label: "Duration", value: project.duration },
-            ].map((item) => (
-              <div key={item.label} className="flex items-start gap-3">
-                <div className="w-9 h-9 rounded-xl bg-orange/10 flex items-center justify-center shrink-0">
-                  <item.icon className="text-orange" size={16} />
+            {/* Info chips */}
+            <div className="mt-5 flex flex-wrap gap-4">
+              {[
+                { icon: Building2, label: "Client", value: project.client },
+                { icon: MapPin, label: "Location", value: project.location },
+                { icon: Calendar, label: "Year", value: project.year },
+                { icon: Clock, label: "Duration", value: project.duration },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center gap-2 bg-card rounded-full px-4 py-2 border border-muted/20 shadow-sm">
+                  <item.icon className="text-orange" size={14} />
+                  <span className="text-muted-foreground text-xs">{item.label}:</span>
+                  <span className="text-foreground text-xs font-semibold">{item.value}</span>
                 </div>
-                <div>
-                  <p className="text-steel text-[10px] uppercase tracking-wider">{item.label}</p>
-                  <p className="text-primary-foreground text-sm font-medium mt-0.5">{item.value}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
