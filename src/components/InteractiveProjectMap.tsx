@@ -6,7 +6,7 @@ import { useMapPins, MapPin as MapPinType } from "@/hooks/useMapPins";
 import { projects } from "@/data/projects";
 import { useLanguage } from "@/context/LanguageContext";
 
-const GEO_BOUNDS = { minLat: 20.59, maxLat: 26.63, minLng: 88.01, maxLng: 92.68 };
+const GEO_BOUNDS = { minLat: 20.59, maxLat: 26.63, minLng: 87.50, maxLng: 93.20 };
 
 const geoToSvg = (lat: number, lng: number) => {
   const x = ((lng - GEO_BOUNDS.minLng) / (GEO_BOUNDS.maxLng - GEO_BOUNDS.minLng)) * 1000;
