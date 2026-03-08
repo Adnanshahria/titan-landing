@@ -13,6 +13,7 @@ export interface SiteContent {
   services: { title: string; desc: string }[];
   clients: string[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
+  whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
@@ -56,6 +57,16 @@ const defaultContent: SiteContent = {
     { quote: "The urea stripper replacement was handled with precision, minimizing downtime.", name: "Engr. Shahidul Haque", title: "Project Director", org: "Jamuna Fertilizer", projectSlug: "jamuna-fertilizer-urea-stripper" },
     { quote: "Techno-Tech has been our go-to contractor for over a decade.", name: "Dr. Anisur Rahman", title: "Technical Advisor", org: "Eastern Refinery", projectSlug: "eastern-refinery-distillation" },
   ],
+  whyChooseUs: {
+    yearsCount: "30",
+    yearsLabel: "Years of Engineering Excellence",
+    points: [
+      "Nationwide project execution from Dhaka to Chittagong",
+      "JVCA-capable with international engineering firms",
+      "Government certified & boiler licensed contractor",
+      "Experienced team of qualified mechanical engineers",
+    ],
+  },
   chatbotConfig: {
     groqApiKey: "",
     tursoUrl: "",

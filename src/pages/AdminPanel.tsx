@@ -12,7 +12,7 @@ import AdminProjectDescriptions from "@/components/admin/AdminProjectDescription
 import { useSiteContent } from "@/context/SiteContext";
 import { toast } from "sonner";
 
-type Tab = "general" | "services" | "clients" | "testimonials" | "chatbot" | "images" | "descriptions";
+type Tab = "general" | "services" | "clients" | "testimonials" | "whychooseus" | "chatbot" | "images" | "descriptions";
 
 const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
@@ -38,6 +38,7 @@ const AdminPanel = () => {
     { id: "services", label: "Services", icon: FileText },
     { id: "clients", label: "Clients", icon: Users },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
+    { id: "whychooseus", label: "Why Choose Us", icon: Settings },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
     { id: "descriptions", label: "Descriptions", icon: FileText },
@@ -240,6 +241,43 @@ const AdminPanel = () => {
                 </div>
                 <Field label="AI System Prompt" value={form.chatbotConfig.systemPrompt} onChange={(v) => setForm({ ...form, chatbotConfig: { ...form.chatbotConfig, systemPrompt: v } })} textarea rows={6} />
               </div>
+            </motion.div>
+          )}
+
+          {tab === "whychooseus" && (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <div className="glass-card rounded-xl p-5 gradient-border space-y-3">
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <Field label="Years Count" value={form.whyChooseUs.yearsCount} onChange={(v) => setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, yearsCount: v } })} />
+                  <Field label="Years Label" value={form.whyChooseUs.yearsLabel} onChange={(v) => setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, yearsLabel: v } })} />
+                </div>
+              </div>
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm">Key Points</h3>
+              {form.whyChooseUs.points.map((p, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <input
+                    value={p}
+                    onChange={(e) => {
+                      const next = [...form.whyChooseUs.points];
+                      next[i] = e.target.value;
+                      setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, points: next } });
+                    }}
+                    className="flex-1 glass-card text-primary-foreground rounded-xl px-4 py-2.5 text-sm focus:border-orange focus:outline-none focus:ring-1 focus:ring-orange/30 transition-all"
+                  />
+                  <button
+                    onClick={() => setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, points: form.whyChooseUs.points.filter((_, j) => j !== i) } })}
+                    className="text-steel hover:text-destructive text-xs transition-colors"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+              <button
+                onClick={() => setForm({ ...form, whyChooseUs: { ...form.whyChooseUs, points: [...form.whyChooseUs.points, "New point"] } })}
+                className="text-orange text-sm font-heading uppercase tracking-wider hover:text-orange-glow transition-colors"
+              >
+                + Add Point
+              </button>
             </motion.div>
           )}
 
