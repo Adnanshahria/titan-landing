@@ -209,7 +209,7 @@ const SuggestedProjects = ({ suggestions, currentCategory }: { suggestions: type
   };
 
   return (
-    <section className="py-14 bg-dark-bg noise-overlay relative">
+    <section className="py-14 bg-dark-bg noise-overlay relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="flex items-end justify-between mb-8">
