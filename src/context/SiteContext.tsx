@@ -31,6 +31,9 @@ export interface SiteContent {
   contactFax: string;
   contactPhone2: string;
   contactOfficeHours: string;
+  contactTitle: string;
+  mapTitle: string;
+  mapEmbedUrl: string;
   footerCompanyName: string;
   footerTagline: string;
   footerCopyright: string;
@@ -66,6 +69,9 @@ const defaultContent: SiteContent = {
   contactFax: "+880-2-9568037",
   contactPhone2: "01685-204406",
   contactOfficeHours: "Sun–Thu, 9AM–6PM",
+  contactTitle: "Get In Touch",
+  mapTitle: "Our Location",
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9024!2d90.3873!3d23.7515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b7a55cd36f%3A0x1d4b5c4e8f1a5b9e!2sFarmgate%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1700000000000",
   footerCompanyName: "Techno-Tech Engineering Ltd.",
   footerTagline: "Engineering Bangladesh's Industrial Future",
   footerCopyright: "© 2025 Techno-Tech Engineering Ltd. All Rights Reserved.",

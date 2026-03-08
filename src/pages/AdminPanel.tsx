@@ -153,6 +153,10 @@ const AdminPanel = () => {
                 </div>
               ))}
 
+              <h3 className="font-heading text-primary-foreground font-semibold uppercase text-sm pt-4">Contact & Map</h3>
+              <Field label="Contact Section Title" value={form.contactTitle} onChange={(v) => setForm({ ...form, contactTitle: v })} />
+              <Field label="Map Section Title" value={form.mapTitle} onChange={(v) => setForm({ ...form, mapTitle: v })} />
+              <Field label="Map Embed URL" value={form.mapEmbedUrl} onChange={(v) => setForm({ ...form, mapEmbedUrl: v })} textarea />
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Contact Email" value={form.contactEmail} onChange={(v) => setForm({ ...form, contactEmail: v })} />
                 <Field label="Contact Phone" value={form.contactPhone} onChange={(v) => setForm({ ...form, contactPhone: v })} />

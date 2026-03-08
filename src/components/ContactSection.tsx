@@ -2,12 +2,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { useSiteContent } from "@/context/SiteContext";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const { content } = useSiteContent();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +36,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-10 bg-dark-bg noise-overlay relative rounded-lg">
       <div ref={ref} className="container mx-auto px-4 relative z-10 max-w-2xl">
-        <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground uppercase text-center mb-8 heading-accent">Get In Touch</h2>
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-primary-foreground uppercase text-center mb-8 heading-accent">{content.contactTitle}</h2>
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
