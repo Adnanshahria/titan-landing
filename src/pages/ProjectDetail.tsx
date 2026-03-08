@@ -134,7 +134,7 @@ const ProjectDetail = () => {
             </h1>
 
             {/* Info card */}
-            <div className="mt-5 glass-card rounded-2xl px-5 py-4 border border-steel/15 backdrop-blur-md inline-flex flex-wrap gap-x-6 gap-y-2">
+            <div className="mt-5 rounded-2xl px-5 py-4 bg-navy/90 backdrop-blur-md border border-steel/15 inline-flex flex-wrap gap-x-6 gap-y-2 shadow-lg">
               {[
                 { icon: Building2, label: "Client", value: project.client },
                 { icon: MapPin, label: "Location", value: project.location },
