@@ -14,6 +14,9 @@ export interface SiteContent {
   clients: string[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
+  contactFax: string;
+  contactPhone2: string;
+  contactOfficeHours: string;
   chatbotConfig: {
     groqApiKey: string;
     tursoUrl: string;
