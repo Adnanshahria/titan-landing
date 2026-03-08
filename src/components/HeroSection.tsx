@@ -35,6 +35,8 @@ const Counter = ({ target, suffix }: { target: number; suffix: string }) => {
 };
 
 const HeroSection = () => {
+  const { content } = useSiteContent();
+  const stats = content.heroStats;
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
