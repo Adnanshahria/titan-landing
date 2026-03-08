@@ -15,12 +15,22 @@ import { useProjectTranslation } from "@/hooks/useProjectTranslations";
 const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const project = projects.find((p) => p.slug === slug);
   const { images: dbImages } = useProjectImages(slug);
   const { description: dbDescription } = useProjectDescription(slug);
+  const { translation } = useProjectTranslation(slug);
   const [imgIndex, setImgIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+
+  const isBn = lang === "bn";
+  const projectName = isBn && translation?.name_bn ? translation.name_bn : project?.name || "";
+  const projectClient = isBn && translation?.client_bn ? translation.client_bn : project?.client || "";
+  const projectLocation = isBn && translation?.location_bn ? translation.location_bn : project?.location || "";
+  const projectDetails = isBn && translation?.description_bn ? translation.description_bn : (dbDescription || project?.details || "");
+  const projectScope = isBn && translation?.scope_bn?.some(s => s) 
+    ? translation.scope_bn.map((s, i) => s || (project?.scope[i] || ""))
+    : project?.scope || [];
 
   const allImages = dbImages.length > 0
     ? dbImages.map((img) => img.image_url)
