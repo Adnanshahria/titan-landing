@@ -155,7 +155,7 @@ const ProjectDetail = () => {
               className="lg:col-span-2"
             >
               <h2 className="text-2xl md:text-3xl font-bold text-foreground uppercase mb-3" style={{ fontFamily: "'Abril Fatface', serif" }}>{t("projectDetail.overview")}</h2>
-              <p className="text-foreground/80 leading-relaxed text-base">{dbDescription || project.details}</p>
+              <p className="text-foreground/80 leading-relaxed text-base">{projectDetails}</p>
 
               {allImages.length > 1 && (
                 <div className="mt-8">
