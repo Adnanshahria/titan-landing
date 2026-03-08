@@ -70,18 +70,14 @@ const ProjectsSection = () => {
                 </span>
               </div>
               <div className="p-5">
-                <h3 className="font-heading text-lg font-semibold text-foreground uppercase">{p.name}</h3>
+                <Link to={`/project/${p.slug}`} className="font-heading text-lg font-semibold text-foreground uppercase hover:text-orange transition-colors">
+                  {p.name}
+                </Link>
                 <p className="text-muted-foreground text-sm mt-2">{p.desc}</p>
                 <div className="flex justify-between items-center mt-4">
                   <span className="text-xs text-muted-foreground uppercase tracking-wider">{p.client}</span>
                   <span className="text-xs text-muted-foreground uppercase tracking-wider">{p.year}</span>
                 </div>
-                <Link
-                  to={`/project/${p.slug}`}
-                  className="inline-flex items-center gap-1 mt-4 text-orange hover:text-orange-glow text-xs font-heading font-semibold uppercase tracking-wider transition-colors"
-                >
-                  View Details <ArrowRight size={14} />
-                </Link>
               </div>
             </motion.div>
           ))}
