@@ -18,18 +18,16 @@ const Footer = () => {
   return (
     <footer className="bg-footer-bg overflow-hidden rounded-lg">
       <div className="container mx-auto px-6 pt-12 pb-8">
-        {/* Top: Logo & tagline */}
         <div className="flex flex-col items-center text-center mb-10">
           <div className="flex items-center gap-3 text-primary-foreground mb-2">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange to-orange-glow flex items-center justify-center shadow-lg shadow-orange/20">
               <ArrowRight className="text-secondary-foreground" size={15} />
             </div>
-            <span className="font-heading text-xl font-bold uppercase tracking-wide">Techno-Tech Engineering Ltd.</span>
+            <span className="font-heading text-xl font-bold uppercase tracking-wide">{content.footerCompanyName}</span>
           </div>
-          <p className="text-steel text-sm">Engineering Bangladesh's Industrial Future</p>
+          <p className="text-steel text-sm">{content.footerTagline}</p>
         </div>
 
-        {/* Columns */}
         <div className="grid sm:grid-cols-2 gap-8">
           <div className="glass-card rounded-xl p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
@@ -58,7 +56,7 @@ const Footer = () => {
               </ul>
               <div className="w-px bg-steel/15" />
               <ul className="space-y-2 text-steel text-[11px] flex-1">
-                {["Power Plant Works", "Civil & Mechanical", "Industrial Equipment", "Refractory & Insulation"].map((s) => (
+                {content.footerServiceLinks.map((s) => (
                   <li key={s}>{s}</li>
                 ))}
               </ul>
@@ -67,9 +65,8 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-steel/10 py-4 mx-6">
-        <p className="text-center text-steel/50 text-[10px] tracking-wider uppercase">© 2025 Techno-Tech Engineering Ltd. All Rights Reserved.</p>
+        <p className="text-center text-steel/50 text-[10px] tracking-wider uppercase">{content.footerCopyright}</p>
       </div>
     </footer>
   );
