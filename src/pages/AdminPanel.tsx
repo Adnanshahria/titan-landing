@@ -258,6 +258,8 @@ const AdminPanel = () => {
 
           {tab === "testimonials" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6">
+              <Field label="Section Title" value={form.testimonialsTitle} onChange={(v) => setForm({ ...form, testimonialsTitle: v })} />
+              <Field label="Section Subtitle" value={form.testimonialsSubtitle} onChange={(v) => setForm({ ...form, testimonialsSubtitle: v })} />
               {form.testimonials.map((t, i) => (
                 <div key={i} className="glass-card rounded-xl p-5 gradient-border space-y-3">
                   <Field label="Quote" value={t.quote} onChange={(v) => {
