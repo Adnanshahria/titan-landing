@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
 
         {/* Columns */}
-        <div className="grid sm:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 gap-8">
           <div className="glass-card rounded-xl p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Contact
@@ -46,25 +46,23 @@ const Footer = () => {
           </div>
           <div className="glass-card rounded-xl p-5">
             <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Quick Links
+              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Quick Links & Services
             </h4>
-            <ul className="space-y-2 text-[11px]">
-              {["Home", "About", "Services", "Projects", "Contact"].map((l) => (
-                <li key={l}>
-                  <a href={`#${l.toLowerCase()}`} className="text-steel hover:text-orange transition-colors">{l}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="glass-card rounded-xl p-5">
-            <h4 className="font-heading text-primary-foreground font-semibold uppercase text-xs tracking-widest mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-orange" /> Services
-            </h4>
-            <ul className="space-y-2 text-steel text-[11px]">
-              {["Power Plant Works", "Civil & Mechanical", "Industrial Equipment", "Refractory & Insulation"].map((s) => (
-                <li key={s}>{s}</li>
-              ))}
-            </ul>
+            <div className="flex gap-4">
+              <ul className="space-y-2 text-[11px] flex-1">
+                {["Home", "About", "Services", "Projects", "Contact"].map((l) => (
+                  <li key={l}>
+                    <a href={`#${l.toLowerCase()}`} className="text-steel hover:text-orange transition-colors">{l}</a>
+                  </li>
+                ))}
+              </ul>
+              <div className="w-px bg-steel/15" />
+              <ul className="space-y-2 text-steel text-[11px] flex-1">
+                {["Power Plant Works", "Civil & Mechanical", "Industrial Equipment", "Refractory & Insulation"].map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
