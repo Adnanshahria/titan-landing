@@ -47,6 +47,7 @@ const AdminPanel = () => {
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
     { id: "images", label: "Project Images", icon: ImageIcon },
     { id: "descriptions", label: "Descriptions", icon: FileText },
+    { id: "mappins", label: "Map Pins", icon: MapPin },
   ];
 
   return (
