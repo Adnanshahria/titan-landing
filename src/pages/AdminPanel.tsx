@@ -12,6 +12,7 @@ import AdminProjectDescriptions from "@/components/admin/AdminProjectDescription
 import AdminLeads from "@/components/admin/AdminLeads";
 import AdminMapPins from "@/components/admin/AdminMapPins";
 import { useSiteContent } from "@/context/SiteContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
 type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "mappins";
@@ -20,6 +21,7 @@ const AdminPanel = () => {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("admin-auth") === "1");
   const [tab, setTab] = useState<Tab>("general");
   const { content, updateContent } = useSiteContent();
+  const { t } = useLanguage();
 
   // Local editable state
   const [form, setForm] = useState({ ...content });
@@ -36,18 +38,18 @@ const AdminPanel = () => {
   };
 
   const tabs: { id: Tab; label: string; icon: typeof Home }[] = [
-    { id: "general", label: "General", icon: Home },
-    { id: "services", label: "Services", icon: FileText },
-    { id: "clients", label: "Clients", icon: Users },
-    { id: "certifications", label: "Certifications", icon: Settings },
-    { id: "testimonials", label: "Testimonials", icon: MessageSquare },
-    { id: "whychooseus", label: "Why Choose Us", icon: Settings },
-    { id: "footer", label: "Footer", icon: Layout },
-    { id: "leads", label: "Leads", icon: Inbox },
-    { id: "chatbot", label: "AI Chatbot", icon: Bot },
-    { id: "images", label: "Project Images", icon: ImageIcon },
-    { id: "descriptions", label: "Descriptions", icon: FileText },
-    { id: "mappins", label: "Map Pins", icon: MapPin },
+    { id: "general", label: t("admin.general"), icon: Home },
+    { id: "services", label: t("admin.services"), icon: FileText },
+    { id: "clients", label: t("admin.clients"), icon: Users },
+    { id: "certifications", label: t("admin.certifications"), icon: Settings },
+    { id: "testimonials", label: t("admin.testimonials"), icon: MessageSquare },
+    { id: "whychooseus", label: t("admin.whyChooseUs"), icon: Settings },
+    { id: "footer", label: t("admin.footer"), icon: Layout },
+    { id: "leads", label: t("admin.leads"), icon: Inbox },
+    { id: "chatbot", label: t("admin.chatbot"), icon: Bot },
+    { id: "images", label: t("admin.images"), icon: ImageIcon },
+    { id: "descriptions", label: t("admin.descriptions"), icon: FileText },
+    { id: "mappins", label: t("admin.mapPins"), icon: MapPin },
   ];
 
   return (
@@ -55,7 +57,7 @@ const AdminPanel = () => {
       {/* Sidebar */}
       <div className="w-60 bg-navy-card border-r border-steel/10 flex flex-col shrink-0">
         <div className="p-5 border-b border-steel/10">
-          <h2 className="font-heading text-primary-foreground font-bold uppercase text-sm tracking-wider">Admin Panel</h2>
+          <h2 className="font-heading text-primary-foreground font-bold uppercase text-sm tracking-wider">{t("admin.title")}</h2>
         </div>
         <nav className="flex-1 py-4 px-3 space-y-1">
           {tabs.map((t) => (
@@ -73,13 +75,13 @@ const AdminPanel = () => {
         </nav>
         <div className="p-4 border-t border-steel/10 space-y-2">
           <Link to="/" className="flex items-center gap-2 text-steel text-xs hover:text-orange transition-colors">
-            <ArrowLeft size={14} /> Back to Site
+            <ArrowLeft size={14} /> {t("admin.backToSite")}
           </Link>
           <button
             onClick={() => { sessionStorage.removeItem("admin-auth"); setAuthed(false); }}
             className="text-steel text-xs hover:text-destructive transition-colors"
           >
-            Logout
+            {t("admin.logout")}
           </button>
         </div>
       </div>
@@ -92,7 +94,7 @@ const AdminPanel = () => {
             onClick={save}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow text-secondary-foreground font-heading font-semibold px-5 py-2 rounded-full text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-orange/20 transition-all"
           >
-            <Save size={14} /> Save Changes
+            <Save size={14} /> {t("admin.saveChanges")}
           </button>
         </div>
 

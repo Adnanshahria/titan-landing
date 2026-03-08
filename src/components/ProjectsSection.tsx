@@ -6,11 +6,13 @@ import { projects } from "@/data/projects";
 import PhotoLightbox from "./PhotoLightbox";
 import { useSiteContent } from "@/context/SiteContext";
 import InteractiveProjectMap from "./InteractiveProjectMap";
+import { useLanguage } from "@/context/LanguageContext";
 
 const categories = ["All", "Power Sector", "Cement", "Fertilizer", "Refinery", "Sports", "Water"];
 
 const ProjectsSection = () => {
   const { content } = useSiteContent();
+  const { t } = useLanguage();
   const [filter, setFilter] = useState("All");
   const [lightbox, setLightbox] = useState<{ open: boolean; projectIndex: number; imageIndex: number }>({
     open: false, projectIndex: 0, imageIndex: 0,
@@ -88,10 +90,10 @@ const ProjectsSection = () => {
         <div className="mt-14">
           <div className="text-center mb-6">
             <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground uppercase">
-              Project Locations
+              {t("projects.locations")}
             </h3>
             <p className="text-muted-foreground text-sm mt-2">
-              Hover over the pins to explore our projects across Bangladesh
+              {t("projects.locationsDesc")}
             </p>
           </div>
           <InteractiveProjectMap filterCategory={filter} />
@@ -102,7 +104,7 @@ const ProjectsSection = () => {
             to="/projects"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-orange to-orange-glow hover:from-orange-glow hover:to-orange text-secondary-foreground font-heading font-semibold px-8 py-3 rounded-full uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-orange/20"
           >
-            View All Projects <ArrowRight size={18} />
+            {t("projects.viewAll")} <ArrowRight size={18} />
           </Link>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { MapPin } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMapPins, MapPin as MapPinType } from "@/hooks/useMapPins";
 import { projects } from "@/data/projects";
+import { useLanguage } from "@/context/LanguageContext";
 
 // Bangladesh geographic bounds (approx)
 const GEO_BOUNDS = {
@@ -30,6 +31,7 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
   const [hoveredPin, setHoveredPin] = useState<MapPinType | null>(null);
   const [tappedPin, setTappedPin] = useState<MapPinType | null>(null);
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const activeTooltipPin = tappedPin || hoveredPin;
 
@@ -244,11 +246,11 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
           <div className="flex items-center gap-1.5 bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-steel/15 shadow-sm">
             <div className="w-2 h-2 rounded-full bg-orange animate-pulse" />
             <span className="text-[9px] text-muted-foreground uppercase tracking-widest font-heading font-semibold">
-              {filtered.length} Projects across Bangladesh
+              {filtered.length} {t("projects.across")}
             </span>
           </div>
           <div className="flex items-center gap-2 bg-card/90 backdrop-blur-sm px-3 py-1.5 rounded-full border border-steel/15 shadow-sm">
-            <span className="text-[9px] text-muted-foreground font-heading uppercase tracking-wider">🇧🇩 Bangladesh</span>
+            <span className="text-[9px] text-muted-foreground font-heading uppercase tracking-wider">🇧🇩 {t("common.bangladesh")}</span>
           </div>
         </div>
       </div>
