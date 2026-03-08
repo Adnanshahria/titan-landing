@@ -37,6 +37,7 @@ const AdminPanel = () => {
     { id: "clients", label: "Clients", icon: Users },
     { id: "testimonials", label: "Testimonials", icon: MessageSquare },
     { id: "chatbot", label: "AI Chatbot", icon: Bot },
+    { id: "images", label: "Project Images", icon: ImageIcon },
   ];
 
   return (
