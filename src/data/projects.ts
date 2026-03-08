@@ -84,7 +84,7 @@ export const projects: Project[] = [
     ],
     details:
       "Chhatak Cement Company entrusted Techno-Tech with the critical task of overhauling three major cement mills simultaneously. This required meticulous planning to minimize production downtime. Our team of specialized mechanical engineers carried out precision bearing replacements, shaft realignments, and comprehensive gear system reconditioning — restoring all three mills to optimal operational efficiency.",
-    coordinates: { lat: 25.0353, lng: 91.6680 },
+    coordinates: { lat: 25.0353, lng: 91.3980 },
   },
   {
     slug: "jamuna-fertilizer-urea-stripper",
