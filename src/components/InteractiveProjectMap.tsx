@@ -148,21 +148,33 @@ const InteractiveProjectMap = ({ highlightSlug, filterCategory }: Props) => {
             })}
           </svg>
 
-          {/* Overlay interactive hit areas (HTML for hover/click) */}
-          <div className="absolute inset-0">
+          {/* Overlay interactive hit areas (HTML for hover/click/touch) */}
+          <div
+            className="absolute inset-0"
+            onClick={() => { if (tappedPin) setTappedPin(null); }}
+            onTouchStart={(e) => {
+              // Dismiss tooltip when tapping empty area
+              if (tappedPin && !(e.target as HTMLElement).closest("[data-map-pin]")) {
+                setTappedPin(null);
+              }
+            }}
+          >
             {filtered.map((pin) => {
               const pos = geoToSvg(pin.latitude, pin.longitude);
               const xPercent = pos.x / 10;
               const yPercent = pos.y / 10;
 
               return (
-                <Link
+                <a
                   key={pin.id}
-                  to={pin.project_slug ? `/project/${pin.project_slug}` : "#"}
-                  className="absolute z-10 w-8 h-8 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                  data-map-pin
+                  href={pin.project_slug ? `/project/${pin.project_slug}` : undefined}
+                  className="absolute z-10 w-10 h-10 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
                   style={{ left: `${xPercent}%`, top: `${yPercent}%` }}
                   onMouseEnter={() => setHoveredPin(pin)}
                   onMouseLeave={() => setHoveredPin(null)}
+                  onClick={(e) => handlePinTap(pin, e)}
+                  onTouchEnd={(e) => handlePinTap(pin, e)}
                 />
               );
             })}
