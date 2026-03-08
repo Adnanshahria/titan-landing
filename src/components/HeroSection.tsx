@@ -92,7 +92,7 @@ const HeroSection = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
         >
           {stats.map((s) => (
-            <div key={s.label} className="glass-card rounded-2xl py-5 px-4 flex flex-col items-center">
+            <div key={s.label} className="glass-card rounded-2xl py-3 px-3 flex flex-col items-center">
               <Counter target={s.value} suffix={s.suffix} />
               <span className="text-steel text-sm mt-2 uppercase tracking-wider">{s.label}</span>
             </div>
