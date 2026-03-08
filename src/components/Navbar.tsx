@@ -107,8 +107,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button className="lg:hidden text-primary-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        <button className="lg:hidden text-primary-foreground mr-auto" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
       </div>
 
