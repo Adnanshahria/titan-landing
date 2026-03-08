@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import { useRef, useEffect, useState } from "react";
 import { useProjectImages } from "@/hooks/useProjectImages";
+import { useProjectDescription } from "@/hooks/useProjectDescription";
 
 const ProjectDetail = () => {
   const { slug } = useParams();
