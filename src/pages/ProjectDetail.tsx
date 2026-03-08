@@ -12,6 +12,19 @@ const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = projects.find((p) => p.slug === slug);
+  const { images: dbImages } = useProjectImages(slug);
+  const [imgIndex, setImgIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  // Build image list: DB images first, fallback to project.image
+  const allImages = dbImages.length > 0
+    ? dbImages.map((img) => img.image_url)
+    : project ? [project.image] : [];
+
+  // Reset index when slug changes
+  useEffect(() => {
+    setImgIndex(0);
+  }, [slug]);
 
   // Scroll to top on slug change
   useEffect(() => {
