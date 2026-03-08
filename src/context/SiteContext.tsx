@@ -25,7 +25,7 @@ export interface SiteContent {
   certifications: { name: string; detail: string; authority: string }[];
   testimonials: { quote: string; name: string; title: string; org: string; projectSlug?: string }[];
   heroStats: { value: number; suffix: string; label: string }[];
-  whyChooseUs: { yearsCount: string; yearsLabel: string; points: string[] };
+  whyChooseUs: { title: string; yearsCount: string; yearsLabel: string; points: string[] };
   contactFax: string;
   contactPhone2: string;
   contactOfficeHours: string;
@@ -101,6 +101,7 @@ const defaultContent: SiteContent = {
     { quote: "Techno-Tech has been our go-to contractor for over a decade.", name: "Dr. Anisur Rahman", title: "Technical Advisor", org: "Eastern Refinery", projectSlug: "eastern-refinery-distillation" },
   ],
   whyChooseUs: {
+    title: "Why Choose Us",
     yearsCount: "30",
     yearsLabel: "Years of Engineering Excellence",
     points: [
