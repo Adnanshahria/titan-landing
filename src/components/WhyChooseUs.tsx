@@ -15,14 +15,14 @@ const WhyChooseUs = () => {
 
   return (
     <section className="grid lg:grid-cols-2">
-      <div ref={ref} className="bg-dark-bg flex items-center justify-center py-20 px-8">
+      <div ref={ref} className="bg-dark-bg noise-overlay relative flex items-center justify-center py-20 px-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center"
+          className="text-center relative z-10"
         >
-          <span className="font-heading text-8xl md:text-9xl font-bold text-orange">30</span>
+          <span className="font-heading text-8xl md:text-9xl font-bold bg-gradient-to-b from-orange to-orange-glow bg-clip-text text-transparent">30</span>
           <p className="font-heading text-2xl text-primary-foreground uppercase mt-4">Years of Engineering Excellence</p>
         </motion.div>
       </div>
@@ -36,7 +36,9 @@ const WhyChooseUs = () => {
           <h2 className="font-heading text-3xl font-bold text-foreground uppercase mb-8">Why Choose Us</h2>
           {points.map((p) => (
             <div key={p} className="flex items-start gap-4">
-              <CheckCircle className="text-orange shrink-0 mt-0.5" size={22} />
+              <div className="w-8 h-8 rounded-lg bg-orange/10 flex items-center justify-center shrink-0 mt-0.5">
+                <CheckCircle className="text-orange" size={18} />
+              </div>
               <span className="text-foreground">{p}</span>
             </div>
           ))}
