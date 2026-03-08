@@ -101,7 +101,12 @@ const AdminPanel = () => {
                 <Field label="Contact Email" value={form.contactEmail} onChange={(v) => setForm({ ...form, contactEmail: v })} />
                 <Field label="Contact Phone" value={form.contactPhone} onChange={(v) => setForm({ ...form, contactPhone: v })} />
               </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <Field label="Contact Phone 2" value={form.contactPhone2} onChange={(v) => setForm({ ...form, contactPhone2: v })} />
+                <Field label="Fax" value={form.contactFax} onChange={(v) => setForm({ ...form, contactFax: v })} />
+              </div>
               <Field label="Contact Address" value={form.contactAddress} onChange={(v) => setForm({ ...form, contactAddress: v })} textarea />
+              <Field label="Office Hours" value={form.contactOfficeHours} onChange={(v) => setForm({ ...form, contactOfficeHours: v })} />
             </motion.div>
           )}
 
