@@ -25,6 +25,7 @@ const Index = () => {
       <TestimonialsSection />
       <WhyChooseUs />
       <ContactSection />
+      <MapSection />
       <Footer />
       <Chatbot />
     </div>
