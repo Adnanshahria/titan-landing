@@ -14,6 +14,7 @@ import { useProjectDescription } from "@/hooks/useProjectDescription";
 const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const project = projects.find((p) => p.slug === slug);
   const { images: dbImages } = useProjectImages(slug);
   const { description: dbDescription } = useProjectDescription(slug);
