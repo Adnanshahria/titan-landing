@@ -227,6 +227,21 @@ const ProjectDetail = () => {
         </div>
       </section>
 
+      {/* Interactive Map */}
+      <section className="py-10 bg-steel-light">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-6">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-foreground uppercase">
+              Project Location
+            </h3>
+            <p className="text-muted-foreground text-sm mt-2">
+              See where this project is located across Bangladesh
+            </p>
+          </div>
+          <InteractiveProjectMap highlightSlug={slug} />
+        </div>
+      </section>
+
       {/* Suggested Projects — E-commerce style horizontal carousel */}
       <SuggestedProjects suggestions={orderedSuggestions} currentCategory={project.category} />
 
