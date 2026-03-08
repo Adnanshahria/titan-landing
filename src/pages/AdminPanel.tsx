@@ -12,6 +12,7 @@ import AdminProjectDescriptions from "@/components/admin/AdminProjectDescription
 import AdminLeads from "@/components/admin/AdminLeads";
 import AdminMapPins from "@/components/admin/AdminMapPins";
 import { useSiteContent } from "@/context/SiteContext";
+import { useLanguage } from "@/context/LanguageContext";
 import { toast } from "sonner";
 
 type Tab = "general" | "services" | "clients" | "certifications" | "testimonials" | "whychooseus" | "footer" | "leads" | "chatbot" | "images" | "descriptions" | "mappins";
